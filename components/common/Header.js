@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -15,6 +15,14 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const isActive = (href) => {
     if (href === "/") return pathname === "/" || pathname === null;
@@ -22,52 +30,73 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-30 bg-white/95 border-b border-gray-100" style={{ backdropFilter: "blur(12px)", boxShadow: "0 1px 20px rgba(0,0,0,0.06)" }}>
-      <nav className="max-w-6xl mx-auto flex items-center justify-between py-3 px-4">
+    <header
+      className="fixed top-0 left-0 w-full z-30 transition-all duration-300"
+      style={{
+        background: "rgba(250, 248, 243, 0.82)",
+        backdropFilter: "blur(14px)",
+        borderBottom: `1px solid ${scrolled ? "var(--line)" : "transparent"}`,
+        boxShadow: scrolled ? "0 1px 24px rgba(20,35,58,0.06)" : "none",
+      }}
+    >
+      <nav className="max-w-6xl mx-auto flex items-center justify-between py-3.5 px-5 md:px-6">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2"
+          className="flex items-center"
           onClick={() => setMenuOpen(false)}
         >
           <Image
             src="/finvin-logo.png"
-            alt="Finvin Logo"
-            width={64}
-            height={64}
+            alt="Finvin"
+            width={120}
+            height={48}
+            priority
+            className="h-10 w-auto"
           />
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-1 text-sm font-medium">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`px-4 py-2 rounded-lg transition-colors relative ${
-                isActive(href)
-                  ? "text-blue-600 bg-blue-50"
-                  : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
+        <div className="hidden md:flex items-center gap-2">
+          {navLinks.map(({ href, label }) => {
+            const active = isActive(href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                className="relative px-3.5 py-2 text-sm font-medium transition-colors"
+                style={{ color: active ? "var(--ink)" : "var(--muted)" }}
+              >
+                {label}
+                <span
+                  className="absolute left-3.5 right-3.5 -bottom-0.5 h-0.5 rounded-full transition-transform origin-left duration-300"
+                  style={{
+                    background: "linear-gradient(90deg, var(--gold), var(--gold-soft))",
+                    transform: active ? "scaleX(1)" : "scaleX(0)",
+                  }}
+                />
+              </Link>
+            );
+          })}
           <Link
             href="/contact-us"
-            className="ml-3 px-5 py-2.5 rounded-full font-semibold text-white text-sm transition-all hover:-translate-y-0.5 hover:brightness-110"
+            className="ml-3 inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm text-white transition-all hover:-translate-y-0.5"
             style={{
-              background: "linear-gradient(135deg, #1d4ed8, #2563eb)",
-              boxShadow: "0 2px 12px rgba(37,99,235,0.3)",
+              background: "var(--ink)",
+              boxShadow: "0 6px 18px rgba(20,35,58,0.18)",
             }}
           >
             Contact Us
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </Link>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+          className="md:hidden p-2 rounded-lg"
+          style={{ color: "var(--ink)" }}
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
@@ -86,18 +115,21 @@ export default function Header() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}>
-          <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-1">
+        <div
+          className="md:hidden"
+          style={{ background: "var(--paper)", borderTop: "1px solid var(--line)", boxShadow: "0 12px 28px rgba(20,35,58,0.1)" }}
+        >
+          <div className="max-w-6xl mx-auto px-5 py-3 flex flex-col gap-1">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
                 onClick={() => setMenuOpen(false)}
-                className={`block px-4 py-3 rounded-xl font-medium transition-colors text-sm ${
-                  isActive(href)
-                    ? "bg-blue-50 text-blue-600"
-                    : "text-gray-700 hover:bg-gray-50"
-                }`}
+                className="block px-4 py-3 rounded-xl font-medium text-sm transition-colors"
+                style={{
+                  color: isActive(href) ? "var(--ink)" : "var(--muted)",
+                  background: isActive(href) ? "rgba(176,122,44,0.08)" : "transparent",
+                }}
               >
                 {label}
               </Link>
@@ -106,7 +138,7 @@ export default function Header() {
               href="/contact-us"
               onClick={() => setMenuOpen(false)}
               className="mt-2 block text-center px-4 py-3 rounded-xl font-semibold text-white text-sm"
-              style={{ background: "linear-gradient(135deg, #1d4ed8, #2563eb)" }}
+              style={{ background: "var(--ink)" }}
             >
               Contact Us
             </Link>

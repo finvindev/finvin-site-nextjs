@@ -8,46 +8,45 @@ const services = [
   { id: "estatedeal", label: "Estatedeal.in" },
 ];
 
-function ServiceSection({ id, accentFrom, accentTo, iconColor, icon, title, intro, offeringsTitle, offerings, note, children }) {
+function ServiceSection({ id, num, icon, title, intro, offeringsTitle, offerings, note, children }) {
   return (
-    <div
-      id={id}
-      className="rounded-2xl overflow-hidden scroll-mt-36"
-      style={{ boxShadow: "0 4px 32px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}
-    >
-      {/* Colored header strip */}
-      <div
-        className="px-8 py-6 flex items-center gap-4"
-        style={{ background: `linear-gradient(135deg, ${accentFrom}, ${accentTo})` }}
-      >
-        <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-white flex-shrink-0">
+    <div id={id} className="scroll-mt-28 card-editorial rounded-2xl overflow-hidden">
+      {/* Header strip */}
+      <div className="px-8 py-7 flex items-center gap-5" style={{ background: "var(--ink)" }}>
+        <div
+          className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{ background: "rgba(176,122,44,0.16)", color: "var(--gold-soft)" }}
+        >
           {icon}
         </div>
-        <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>
+        <div>
+          <span className="text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: "var(--gold-soft)" }}>
+            {num}
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold font-display text-white">{title}</h2>
+        </div>
       </div>
 
       {/* Body */}
       <div className="bg-white px-8 py-8">
-        <p className="text-gray-600 text-lg mb-6 leading-relaxed">{intro}</p>
+        <p className="text-lg mb-7 leading-relaxed" style={{ color: "var(--body)" }}>{intro}</p>
 
         {offeringsTitle && (
-          <h3 className="text-base font-bold uppercase tracking-widest mb-5" style={{ color: iconColor }}>
-            {offeringsTitle}
-          </h3>
+          <h3 className="eyebrow mb-5">{offeringsTitle}</h3>
         )}
 
         {offerings && (
-          <ul className="space-y-4 text-gray-700 mb-6">
+          <ul className="space-y-4 mb-6">
             {offerings.map(({ title: t, body }) => (
               <li key={t} className="flex items-start gap-3">
                 <span
                   className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background: `linear-gradient(135deg, ${accentFrom}, ${accentTo})` }}
+                  style={{ background: "linear-gradient(135deg, var(--gold), var(--gold-soft))" }}
                 >
                   <CheckIcon className="w-3.5 h-3.5 text-white" />
                 </span>
-                <div>
-                  <span className="font-semibold text-gray-900">{t}:</span>{" "}
+                <div style={{ color: "var(--body)" }}>
+                  <span className="font-semibold" style={{ color: "var(--ink)" }}>{t}:</span>{" "}
                   {body}
                 </div>
               </li>
@@ -59,8 +58,8 @@ function ServiceSection({ id, accentFrom, accentTo, iconColor, icon, title, intr
 
         {note && (
           <div
-            className="mt-6 p-4 rounded-xl text-sm text-gray-600 italic"
-            style={{ background: "#f8fafc", borderLeft: `4px solid ${accentFrom}` }}
+            className="mt-6 p-5 rounded-xl text-sm italic"
+            style={{ background: "var(--paper)", borderLeft: "3px solid var(--gold)", color: "var(--muted)" }}
           >
             {note}
           </div>
@@ -74,41 +73,36 @@ export default function WhatWeDo() {
   return (
     <main className="min-h-screen">
       {/* ── Hero ── */}
-      <section
-        className="relative w-full text-white overflow-hidden py-28"
-        style={{
-          background: "linear-gradient(135deg, #0B1929 0%, #0e2647 55%, #0B1929 100%)",
-        }}
-      >
-        <div className="absolute inset-0 hero-dot-pattern" />
+      <section className="relative w-full overflow-hidden pt-40 pb-20" style={{ background: "var(--paper)" }}>
+        <div className="absolute inset-0 paper-grid opacity-70" />
         <div
-          className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full pointer-events-none"
-          style={{
-            background: "radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 70%)",
-            filter: "blur(80px)",
-          }}
+          className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(176,122,44,0.14) 0%, transparent 70%)", filter: "blur(60px)" }}
         />
-        <div className="relative max-w-6xl mx-auto px-4 text-center space-y-5">
-          <span className="inline-block text-xs font-bold text-blue-300 tracking-widest uppercase">
-            Our Services
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold">What We Do</h1>
-          <p className="text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed">
+        <div className="relative max-w-6xl mx-auto px-5 text-center space-y-5">
+          <span className="eyebrow">Our Services</span>
+          <h1 className="text-4xl md:text-6xl font-bold font-display" style={{ color: "var(--ink)" }}>What We Do</h1>
+          <div className="rule-gold mx-auto" />
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: "var(--muted)" }}>
             Comprehensive solutions for distressed assets and insolvency
-            resolution — from advisory to digital monetization
+            resolution — from advisory to digital monetization.
           </p>
         </div>
       </section>
 
       {/* ── Sticky jump nav ── */}
-      <div className="sticky top-[89px] z-20 bg-white border-b border-gray-200" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
-        <div className="max-w-6xl mx-auto px-4">
+      <div
+        className="sticky top-[68px] z-20"
+        style={{ background: "rgba(250,248,243,0.9)", backdropFilter: "blur(10px)", borderBottom: "1px solid var(--line)" }}
+      >
+        <div className="max-w-6xl mx-auto px-5">
           <div className="flex gap-1 overflow-x-auto py-3 scrollbar-none">
             {services.map(({ id, label }) => (
               <a
                 key={id}
                 href={`#${id}`}
-                className="flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold text-blue-700 hover:bg-blue-50 hover:text-blue-900 transition-colors"
+                className="flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold transition-colors hover:bg-white"
+                style={{ color: "var(--ink-2)" }}
               >
                 {label}
               </a>
@@ -118,13 +112,11 @@ export default function WhatWeDo() {
       </div>
 
       {/* ── Services ── */}
-      <section className="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 gap-10">
+      <section className="max-w-6xl mx-auto px-5 md:px-6 py-16 grid grid-cols-1 gap-10" style={{ background: "var(--paper)" }}>
 
         <ServiceSection
           id="advisory"
-          accentFrom="#1d4ed8"
-          accentTo="#2563eb"
-          iconColor="#2563eb"
+          num="01"
           icon={
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
               <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -145,9 +137,7 @@ export default function WhatWeDo() {
 
         <ServiceSection
           id="portfolio-sale"
-          accentFrom="#4f46e5"
-          accentTo="#6d28d9"
-          iconColor="#4f46e5"
+          num="02"
           icon={
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
               <polyline points="3 3 3 21 21 21" />
@@ -168,9 +158,7 @@ export default function WhatWeDo() {
 
         <ServiceSection
           id="ip-services"
-          accentFrom="#0891b2"
-          accentTo="#0284c7"
-          iconColor="#0891b2"
+          num="03"
           icon={
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
               <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -202,16 +190,14 @@ export default function WhatWeDo() {
                 ],
               },
             ].map(({ title, items }) => (
-              <div key={title} className="rounded-xl p-5" style={{ background: "#f0f9ff", border: "1px solid #bae6fd" }}>
-                <h3 className="font-bold text-base mb-4" style={{ color: "#0284c7" }}>
-                  {title}
-                </h3>
+              <div key={title} className="rounded-xl p-6" style={{ background: "var(--paper)", border: "1px solid var(--line)" }}>
+                <h3 className="font-bold font-display text-lg mb-4" style={{ color: "var(--ink)" }}>{title}</h3>
                 <ul className="space-y-2.5">
                   {items.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
+                    <li key={item} className="flex items-start gap-2.5 text-sm" style={{ color: "var(--body)" }}>
                       <span
                         className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                        style={{ background: "linear-gradient(135deg, #0891b2, #0284c7)" }}
+                        style={{ background: "linear-gradient(135deg, var(--gold), var(--gold-soft))" }}
                       >
                         <CheckIcon className="w-3 h-3 text-white" />
                       </span>
@@ -226,9 +212,7 @@ export default function WhatWeDo() {
 
         <ServiceSection
           id="estatedeal"
-          accentFrom="#059669"
-          accentTo="#047857"
-          iconColor="#059669"
+          num="04"
           icon={
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
               <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
@@ -249,14 +233,11 @@ export default function WhatWeDo() {
       </section>
 
       {/* ── CTA ── */}
-      <div className="max-w-6xl mx-auto px-4 pb-20 text-center">
+      <div className="px-5 pb-20 text-center" style={{ background: "var(--paper)" }}>
         <Link
           href="/contact-us"
-          className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-semibold text-white text-lg transition-all hover:-translate-y-0.5 hover:brightness-110"
-          style={{
-            background: "linear-gradient(135deg, #1d4ed8, #2563eb)",
-            boxShadow: "0 4px 20px rgba(37,99,235,0.35)",
-          }}
+          className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-semibold text-white text-lg transition-all hover:-translate-y-0.5"
+          style={{ background: "var(--ink)", boxShadow: "0 10px 28px rgba(20,35,58,0.2)" }}
         >
           Get in Touch
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

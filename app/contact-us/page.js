@@ -19,8 +19,6 @@ const contactMethods = [
     label: "Phone",
     value: "+91 86553 53970",
     href: "tel:+918655353970",
-    color: "#2563eb",
-    bg: "#eff6ff",
   },
   {
     icon: (
@@ -31,8 +29,6 @@ const contactMethods = [
     label: "Email",
     value: "Info@finvin.co.in",
     href: "mailto:Info@finvin.co.in",
-    color: "#7c3aed",
-    bg: "#f5f3ff",
   },
 ];
 
@@ -49,63 +45,45 @@ export default function ContactUs() {
   return (
     <main className="min-h-screen">
       {/* ── Hero ── */}
-      <section
-        className="relative w-full text-white overflow-hidden py-28"
-        style={{
-          background: "linear-gradient(135deg, #0B1929 0%, #0a2040 55%, #0B1929 100%)",
-        }}
-      >
-        <div className="absolute inset-0 hero-dot-pattern" />
+      <section className="relative w-full overflow-hidden pt-40 pb-20" style={{ background: "var(--paper)" }}>
+        <div className="absolute inset-0 paper-grid opacity-70" />
         <div
-          className="absolute top-1/3 right-1/3 w-72 h-72 rounded-full pointer-events-none"
-          style={{
-            background: "radial-gradient(circle, rgba(5,150,105,0.25) 0%, transparent 70%)",
-            filter: "blur(70px)",
-          }}
+          className="absolute top-1/4 right-1/3 w-72 h-72 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(176,122,44,0.13) 0%, transparent 70%)", filter: "blur(60px)" }}
         />
-        <div className="relative max-w-6xl mx-auto px-4 text-center space-y-5">
-          <span className="inline-block text-xs font-bold text-emerald-300 tracking-widest uppercase">
-            Reach Out
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold">Let&apos;s Connect</h1>
-          <p className="text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed">
+        <div className="relative max-w-6xl mx-auto px-5 text-center space-y-5">
+          <span className="eyebrow">Reach Out</span>
+          <h1 className="text-4xl md:text-6xl font-bold font-display" style={{ color: "var(--ink)" }}>Let&apos;s Connect</h1>
+          <div className="rule-gold mx-auto" />
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: "var(--muted)" }}>
             Your journey to financial excellence starts with a conversation.
             We&apos;re here to listen, understand, and guide you through every step.
           </p>
-          <p className="text-base text-blue-300 italic">
+          <p className="text-base italic font-display" style={{ color: "var(--gold)" }}>
             &ldquo;Where expertise meets opportunity, and solutions find their perfect match&rdquo;
           </p>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 py-20 space-y-20">
+      <section className="max-w-6xl mx-auto px-5 md:px-6 py-20 space-y-20" style={{ background: "var(--paper)" }}>
 
         {/* ── Contact methods strip ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {contactMethods.map(({ icon, label, value, href, color, bg }) => (
+          {contactMethods.map(({ icon, label, value, href }) => (
             <a
               key={label}
               href={href}
-              className="flex items-center gap-5 p-6 rounded-2xl card-lift group"
-              style={{
-                background: bg,
-                border: `1px solid ${color}22`,
-                boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
-              }}
+              className="flex items-center gap-5 p-6 rounded-2xl card-editorial group"
             >
               <div
                 className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ color, background: "white", boxShadow: `0 2px 12px ${color}22` }}
+                style={{ color: "var(--ink-2)", background: "var(--paper-2)" }}
               >
                 {icon}
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">
-                  {label}
-                </p>
-                <p className="font-semibold text-lg" style={{ color }}>
-                  {value}
-                </p>
+                <p className="eyebrow mb-1">{label}</p>
+                <p className="font-semibold text-lg font-display" style={{ color: "var(--ink)" }}>{value}</p>
               </div>
             </a>
           ))}
@@ -114,18 +92,13 @@ export default function ContactUs() {
         {/* ── Contact form ── */}
         <div>
           <div className="mb-8">
-            <span className="inline-block text-xs font-bold text-blue-600 tracking-widest uppercase mb-2">
-              Send a Message
-            </span>
-            <h2 className="text-3xl font-bold text-gray-900">How Can We Help?</h2>
-            <p className="text-gray-500 mt-2">
+            <span className="eyebrow">Send a Message</span>
+            <h2 className="text-3xl font-bold font-display mt-2" style={{ color: "var(--ink)" }}>How Can We Help?</h2>
+            <p className="mt-2" style={{ color: "var(--muted)" }}>
               Fill in the form and we&apos;ll get back to you within one business day.
             </p>
           </div>
-          <div
-            className="rounded-2xl p-8 md:p-12 bg-white"
-            style={{ boxShadow: "0 4px 32px rgba(0,0,0,0.08)", border: "1px solid #e5e7eb" }}
-          >
+          <div className="rounded-2xl p-8 md:p-12 bg-white" style={{ border: "1px solid var(--line)", boxShadow: "0 18px 40px rgba(20,35,58,0.06)" }}>
             <ContactForm />
           </div>
         </div>
@@ -133,31 +106,22 @@ export default function ContactUs() {
         {/* ── Office locations ── */}
         <div>
           <div className="mb-10">
-            <span className="inline-block text-xs font-bold text-blue-600 tracking-widest uppercase mb-2">
-              Find Us
-            </span>
-            <h2 className="text-3xl font-bold text-gray-900">Our Offices</h2>
-            <p className="text-gray-500 mt-2">
-              6 locations across India, ready to serve you
-            </p>
+            <span className="eyebrow">Find Us</span>
+            <h2 className="text-3xl font-bold font-display mt-2" style={{ color: "var(--ink)" }}>Our Offices</h2>
+            <p className="mt-2" style={{ color: "var(--muted)" }}>6 locations across India, ready to serve you</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {offices.map(({ city, address, primary }) => (
               <div
                 key={city}
-                className="rounded-2xl p-6 bg-white card-lift relative"
-                style={{
-                  boxShadow: primary
-                    ? "0 4px 24px rgba(37,99,235,0.15)"
-                    : "0 2px 16px rgba(0,0,0,0.06)",
-                  border: primary ? "1px solid #bfdbfe" : "1px solid #e5e7eb",
-                }}
+                className="rounded-2xl p-6 bg-white card-editorial relative"
+                style={primary ? { borderColor: "var(--gold)" } : undefined}
               >
                 {primary && (
                   <span
                     className="absolute top-4 right-4 text-xs font-bold px-2.5 py-1 rounded-full"
-                    style={{ background: "#eff6ff", color: "#2563eb" }}
+                    style={{ background: "rgba(176,122,44,0.12)", color: "var(--gold)" }}
                   >
                     HQ
                   </span>
@@ -165,13 +129,13 @@ export default function ContactUs() {
                 <div className="flex items-start gap-3">
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-                    style={{ background: "#eff6ff", color: "#2563eb" }}
+                    style={{ background: "var(--paper-2)", color: "var(--ink-2)" }}
                   >
                     <PinIcon />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1.5">{city}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <h3 className="font-bold font-display text-lg mb-1.5" style={{ color: "var(--ink)" }}>{city}</h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
                       {address.map((line, i) => (
                         <span key={i}>
                           {line}

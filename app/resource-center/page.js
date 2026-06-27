@@ -8,8 +8,6 @@ const resources = [
     ),
     label: "IBBI Acts",
     description: "The Insolvency and Bankruptcy Code and allied legislation",
-    color: "#2563eb",
-    bg: "#eff6ff",
   },
   {
     href: "https://ibbi.gov.in/en/legal-framework/rules",
@@ -20,8 +18,6 @@ const resources = [
     ),
     label: "IBBI Rules",
     description: "Operational rules and procedural frameworks",
-    color: "#7c3aed",
-    bg: "#f5f3ff",
   },
   {
     href: "https://ibbi.gov.in/en/legal-framework/updated",
@@ -32,8 +28,6 @@ const resources = [
     ),
     label: "IBBI Regulations",
     description: "Updated and consolidated regulatory framework",
-    color: "#0891b2",
-    bg: "#ecfeff",
   },
   {
     href: "https://ibbi.gov.in/en/legal-framework/circulars",
@@ -44,8 +38,6 @@ const resources = [
     ),
     label: "IBBI Circulars",
     description: "Official communications and policy updates",
-    color: "#d97706",
-    bg: "#fffbeb",
   },
   {
     href: "https://ibbi.gov.in/en/legal-framework/notifications",
@@ -56,8 +48,6 @@ const resources = [
     ),
     label: "IBBI Notifications",
     description: "Important announcements and statutory notices",
-    color: "#dc2626",
-    bg: "#fef2f2",
   },
   {
     href: "https://ibbi.gov.in/en/legal-framework/facilitation",
@@ -68,8 +58,6 @@ const resources = [
     ),
     label: "IBBI Facilitations",
     description: "Support programs and facilitation mechanisms",
-    color: "#059669",
-    bg: "#ecfdf5",
   },
   {
     href: "https://ibbi.gov.in/en/legal-framework/guidelines",
@@ -80,8 +68,6 @@ const resources = [
     ),
     label: "IBBI Guidelines",
     description: "Best practices, standards, and procedural guidance",
-    color: "#0284c7",
-    bg: "#f0f9ff",
   },
   {
     href: "https://ibbi.gov.in/en/legal-framework/other-authorities",
@@ -92,121 +78,92 @@ const resources = [
     ),
     label: "Other Authorities",
     description: "References from external regulatory bodies",
-    color: "#6d28d9",
-    bg: "#f5f3ff",
   },
 ];
+
+function ArrowOut({ className }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+    </svg>
+  );
+}
 
 export default function ResourceCenter() {
   return (
     <main className="min-h-screen">
       {/* ── Hero ── */}
-      <section
-        className="relative w-full text-white overflow-hidden py-28"
-        style={{
-          background: "linear-gradient(135deg, #0B1929 0%, #0e1f3d 55%, #0B1929 100%)",
-        }}
-      >
-        <div className="absolute inset-0 hero-dot-pattern" />
+      <section className="relative w-full overflow-hidden pt-40 pb-20" style={{ background: "var(--paper)" }}>
+        <div className="absolute inset-0 paper-grid opacity-70" />
         <div
-          className="absolute top-1/3 right-1/3 w-80 h-80 rounded-full pointer-events-none"
-          style={{
-            background: "radial-gradient(circle, rgba(14,165,233,0.25) 0%, transparent 70%)",
-            filter: "blur(80px)",
-          }}
+          className="absolute top-1/4 right-1/3 w-80 h-80 rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(176,122,44,0.13) 0%, transparent 70%)", filter: "blur(60px)" }}
         />
-        <div className="relative max-w-6xl mx-auto px-4 text-center space-y-5">
+        <div className="relative max-w-6xl mx-auto px-5 text-center space-y-5">
           <div
-            className="inline-flex items-center gap-2 mb-2 px-4 py-2 rounded-full text-xs font-bold text-sky-200 tracking-widest uppercase"
-            style={{ background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.2)" }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-[0.16em] uppercase"
+            style={{ background: "var(--surface)", border: "1px solid var(--line)", color: "var(--muted)" }}
           >
             IBBI Recognition No. IBBI/IPE/0159
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold">Resource Center</h1>
-          <p className="text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed">
+          <h1 className="text-4xl md:text-6xl font-bold font-display" style={{ color: "var(--ink)" }}>Resource Center</h1>
+          <div className="rule-gold mx-auto" />
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: "var(--muted)" }}>
             Your gateway to comprehensive insolvency and bankruptcy frameworks.
             Access official documents, regulations, and guidelines from IBBI.
           </p>
-          <p className="text-base text-blue-300 italic">
+          <p className="text-base italic font-display" style={{ color: "var(--gold)" }}>
             &ldquo;Empowering stakeholders with authoritative legal resources and regulatory insights&rdquo;
           </p>
         </div>
       </section>
 
       {/* ── Info strip ── */}
-      <div
-        className="w-full border-b py-6"
-        style={{ background: "#f8fafc", borderColor: "#e5e7eb" }}
-      >
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-600">
+      <div className="w-full border-y py-6" style={{ background: "var(--surface)", borderColor: "var(--line)" }}>
+        <div className="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm" style={{ color: "var(--muted)" }}>
             All resources below link directly to the official IBBI portal at{" "}
-            <span className="font-semibold text-blue-700">ibbi.gov.in</span>
+            <span className="font-semibold" style={{ color: "var(--ink-2)" }}>ibbi.gov.in</span>
           </p>
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold"
-            style={{ background: "#eff6ff", color: "#2563eb", border: "1px solid #bfdbfe" }}
+            style={{ background: "rgba(176,122,44,0.1)", color: "var(--gold)", border: "1px solid rgba(176,122,44,0.25)" }}
           >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
+            <ArrowOut className="w-3.5 h-3.5" />
             Opens on official IBBI website
           </div>
         </div>
       </div>
 
       {/* ── Resources grid ── */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
+      <section className="max-w-6xl mx-auto px-5 md:px-6 py-16" style={{ background: "var(--paper)" }}>
         <div className="mb-10">
-          <span className="inline-block text-xs font-bold text-blue-600 tracking-widest uppercase mb-2">
-            Legal Framework
-          </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+          <span className="eyebrow">Legal Framework</span>
+          <h2 className="text-2xl md:text-3xl font-bold font-display mt-2" style={{ color: "var(--ink)" }}>
             IBBI Official Resources
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {resources.map(({ href, icon, label, description, color, bg }) => (
+          {resources.map(({ href, icon, label, description }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-white rounded-2xl p-6 flex flex-col card-lift"
-              style={{
-                boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
-                border: "1px solid #e5e7eb",
-              }}
+              className="group card-editorial rounded-2xl p-6 flex flex-col"
             >
-              {/* Icon */}
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 flex-shrink-0 transition-transform group-hover:scale-110 duration-200"
-                style={{ background: bg, color }}
+                style={{ background: "var(--paper-2)", color: "var(--ink-2)" }}
               >
                 {icon}
               </div>
-
-              {/* Content */}
-              <h3
-                className="font-bold text-gray-900 mb-2 group-hover:transition-colors"
-                style={{ "--hover-color": color }}
-              >
-                {label}
-              </h3>
-              <p className="text-sm text-gray-500 leading-relaxed flex-1">
-                {description}
-              </p>
-
-              {/* Arrow */}
-              <div
-                className="mt-4 flex items-center gap-1 text-xs font-semibold"
-                style={{ color }}
-              >
+              <h3 className="font-bold font-display mb-2" style={{ color: "var(--ink)" }}>{label}</h3>
+              <p className="text-sm leading-relaxed flex-1" style={{ color: "var(--muted)" }}>{description}</p>
+              <div className="mt-4 flex items-center gap-1 text-xs font-semibold" style={{ color: "var(--gold)" }}>
                 View on IBBI
-                <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
+                <ArrowOut className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 duration-200" />
               </div>
             </a>
           ))}
@@ -214,25 +171,19 @@ export default function ResourceCenter() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <div
-        className="w-full py-16 text-center"
-        style={{ background: "#f8fafc", borderTop: "1px solid #e5e7eb" }}
-      >
-        <div className="max-w-xl mx-auto px-4">
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">
-            Need Expert Guidance?
+      <div className="w-full py-16 text-center" style={{ background: "var(--surface)", borderTop: "1px solid var(--line)" }}>
+        <div className="max-w-xl mx-auto px-5">
+          <h3 className="text-2xl font-bold font-display mb-3" style={{ color: "var(--ink)" }}>
+            Need expert guidance?
           </h3>
-          <p className="text-gray-600 mb-8">
+          <p className="mb-8" style={{ color: "var(--muted)" }}>
             Our team can help you interpret regulations and build the right
             strategy for your distressed asset situation.
           </p>
           <a
             href="/contact-us"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white transition-all hover:-translate-y-0.5 hover:brightness-110"
-            style={{
-              background: "linear-gradient(135deg, #1d4ed8, #2563eb)",
-              boxShadow: "0 4px 16px rgba(37,99,235,0.35)",
-            }}
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white transition-all hover:-translate-y-0.5"
+            style={{ background: "var(--ink)", boxShadow: "0 8px 22px rgba(20,35,58,0.18)" }}
           >
             Talk to Our Team
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

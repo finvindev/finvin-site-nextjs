@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 
+const inputBase =
+  "w-full px-4 py-3 rounded-xl border bg-white text-[var(--ink)] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--gold)] focus:border-transparent transition";
+
 export default function ContactForm() {
   const [form, setForm] = useState({
     name: "",
@@ -42,24 +45,18 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="text-center py-12">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg
-            className="w-8 h-8 text-green-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
+        <div
+          className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+          style={{ background: "rgba(176,122,44,0.12)" }}
+        >
+          <svg className="w-8 h-8" style={{ color: "var(--gold)" }} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">Message sent!</h3>
-        <p className="text-gray-600">
+        <h3 className="text-2xl font-bold font-display mb-2" style={{ color: "var(--ink)" }}>
+          Message sent
+        </h3>
+        <p style={{ color: "var(--muted)" }}>
           Thank you for reaching out. We will get back to you shortly.
         </p>
       </div>
@@ -70,11 +67,8 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Full Name <span className="text-red-500">*</span>
+          <label htmlFor="name" className="block text-sm font-medium mb-1.5" style={{ color: "var(--ink)" }}>
+            Full Name <span style={{ color: "var(--gold)" }}>*</span>
           </label>
           <input
             id="name"
@@ -83,19 +77,13 @@ export default function ContactForm() {
             value={form.name}
             onChange={handleChange}
             placeholder="Your full name"
-            className={`w-full px-4 py-3 rounded-xl border ${
-              errors.name ? "border-red-400" : "border-gray-300"
-            } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition`}
+            className={inputBase}
+            style={{ borderColor: errors.name ? "#dc2626" : "var(--line)" }}
           />
-          {errors.name && (
-            <p className="mt-1 text-sm text-red-500">{errors.name}</p>
-          )}
+          {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
         </div>
         <div>
-          <label
-            htmlFor="company"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
+          <label htmlFor="company" className="block text-sm font-medium mb-1.5" style={{ color: "var(--ink)" }}>
             Company / Organisation
           </label>
           <input
@@ -105,17 +93,15 @@ export default function ContactForm() {
             value={form.company}
             onChange={handleChange}
             placeholder="Your company or bank name"
-            className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            className={inputBase}
+            style={{ borderColor: "var(--line)" }}
           />
         </div>
       </div>
 
       <div>
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-700 mb-1"
-        >
-          Email Address <span className="text-red-500">*</span>
+        <label htmlFor="email" className="block text-sm font-medium mb-1.5" style={{ color: "var(--ink)" }}>
+          Email Address <span style={{ color: "var(--gold)" }}>*</span>
         </label>
         <input
           id="email"
@@ -124,21 +110,15 @@ export default function ContactForm() {
           value={form.email}
           onChange={handleChange}
           placeholder="you@example.com"
-          className={`w-full px-4 py-3 rounded-xl border ${
-            errors.email ? "border-red-400" : "border-gray-300"
-          } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition`}
+          className={inputBase}
+          style={{ borderColor: errors.email ? "#dc2626" : "var(--line)" }}
         />
-        {errors.email && (
-          <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-        )}
+        {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-gray-700 mb-1"
-        >
-          How can we help? <span className="text-red-500">*</span>
+        <label htmlFor="message" className="block text-sm font-medium mb-1.5" style={{ color: "var(--ink)" }}>
+          How can we help? <span style={{ color: "var(--gold)" }}>*</span>
         </label>
         <textarea
           id="message"
@@ -147,18 +127,16 @@ export default function ContactForm() {
           value={form.message}
           onChange={handleChange}
           placeholder="Briefly describe your requirement..."
-          className={`w-full px-4 py-3 rounded-xl border ${
-            errors.message ? "border-red-400" : "border-gray-300"
-          } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none`}
+          className={`${inputBase} resize-none`}
+          style={{ borderColor: errors.message ? "#dc2626" : "var(--line)" }}
         />
-        {errors.message && (
-          <p className="mt-1 text-sm text-red-500">{errors.message}</p>
-        )}
+        {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
       </div>
 
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors text-lg"
+        className="w-full text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:-translate-y-0.5"
+        style={{ background: "var(--ink)", boxShadow: "0 8px 22px rgba(20,35,58,0.18)" }}
       >
         Send Message
       </button>

@@ -1,12 +1,21 @@
-import { Roboto } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 
-const roboto = Roboto({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-roboto",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
+  display: "swap",
 });
 
 export const metadata = {
@@ -19,12 +28,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} antialiased bg-white text-[#1a2233] min-h-screen flex flex-col`}
-        style={{ fontFamily: "var(--font-roboto), sans-serif" }}
+        className={`${inter.variable} ${fraunces.variable} antialiased min-h-screen flex flex-col`}
       >
         <Header />
-        {/* Spacer matches the header height: logo 64px + py-3 (12px × 2) + border 1px = 89px */}
-        <div className="h-[89px] shrink-0" />
         <div className="flex-1 w-full">{children}</div>
         <Footer />
       </body>
