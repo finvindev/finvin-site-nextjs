@@ -31,7 +31,7 @@ export const leadership = [
     title: "Leadership",
     description:
       "Began as a Credit Manager at an NBFC. Specializes in distressed asset advisory, buy-side due diligence, and resolution planning. Focused on NPA operations and strategic consultancy during insolvency.",
-    borderColor: "border-green-600",
+    borderColor: "border-blue-500",
     image: "/images/team/mayank-agarwal.jpg",
   },
   {
@@ -39,14 +39,14 @@ export const leadership = [
     title: "Leadership",
     description:
       "Chartered Accountant with 5+ years at Ernst & Young in auditing, consulting, and financial due diligence. Now an entrepreneur, established manufacturing units in Surat and Vapi.",
-    borderColor: "border-green-600",
+    borderColor: "border-blue-500",
     image: "/images/team/nikhil-agarwal.jpeg",
   },
   {
     name: "Ronak Doshi",
     title: "Leadership",
     description: "Details pending",
-    borderColor: "border-green-600",
+    borderColor: "border-blue-500",
     image: "/images/team/placeholder.jpg",
   },
 ];
@@ -57,7 +57,7 @@ export const advisors = [
     title: "FCA, Insolvency Professional",
     description:
       "32 years at Bank of Baroda in key roles including ED, followed by senior leadership at ECL Finance. Handled CIRP and Liquidation cases, currently managing one of each.",
-    borderColor: "border-yellow-600",
+    borderColor: "border-sky-500",
     image: "/images/team/ram-singh-setia.jpg",
   },
   {
@@ -65,7 +65,7 @@ export const advisors = [
     title: "FCA, Insolvency Professional",
     description:
       "Partner at Jain & Kachhawaha with 15+ years of experience. Expertise in insolvency law, audit, and taxation. Successfully resolved multiple CIRP and liquidation cases across diverse industries.",
-    borderColor: "border-yellow-600",
+    borderColor: "border-sky-500",
     image: "/images/team/shreyansh-jain.jpg",
   },
   {
@@ -73,7 +73,7 @@ export const advisors = [
     title: "FCA, Insolvency Professional",
     description:
       "Partner at Bhattad and Company. Holds LLB, DISA, CISA; completed various ICAI certifications. Expert in bank audits, forensic accounting, GST, and project financing.",
-    borderColor: "border-yellow-600",
+    borderColor: "border-sky-500",
     image: "/images/team/placeholder.jpg",
   },
 ];

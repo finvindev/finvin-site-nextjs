@@ -23,12 +23,9 @@ export default function RootLayout({ children }) {
         style={{ fontFamily: "var(--font-roboto), sans-serif" }}
       >
         <Header />
-        {/* Spacer for fixed header */}
-        <div className="h-[92px]" />
-        {/* Main Content */}
-        <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-8">
-          {children}
-        </main>
+        {/* Spacer matches the header height: logo 64px + py-3 (12px × 2) + border 1px = 89px */}
+        <div className="h-[89px] shrink-0" />
+        <div className="flex-1 w-full">{children}</div>
         <Footer />
       </body>
     </html>
