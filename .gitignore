@@ -25,3 +25,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# local media — source files live on Cloudinary now
+/assets
+/public/images
+/public/decor
