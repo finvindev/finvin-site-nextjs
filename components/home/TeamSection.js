@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import ImagePlaceholder from "../common/ImagePlaceholder";
 
 const FOUNDERS = [
@@ -15,12 +16,14 @@ const FOUNDERS = [
     role: "Co-Founder",
     credentials: "CA · CFA · B.COM",
     bio: "Specialises in complex NPA resolution, insolvency and strategic asset recovery, with a deep understanding of financial markets and corporate finance.",
+    photo: "/images/team/nayan-agarwal.png",
   },
   {
     name: "Khushal Agarwal",
     role: "Co-Founder",
     credentials: "CA · B.COM",
     bio: "Leads the team in professional credits & information technology consultancy and has developed extensive expertise in assets, liabilities, risk, and sectoral analysis for banks and NBFCs.",
+    photo: "/images/team/khushal-agarwal.png",
   },
 ];
 
@@ -29,16 +32,19 @@ const LEADERSHIP = [
     name: "Ram Singh Sethia",
     role: "FCA, Insolvency Professional",
     bio: "Worked at Bank of Baroda for 32 years in various positions and retired as Executive Director. Also worked in IDBI, Finance for Industry and Retired as Senior Vice President. He has acted as a Resolution Professional in two CIRP Cases and successfully resolved one.",
+    photo: "/images/team/R-S-setia.jpeg",
   },
   {
     name: "Mayank Agarwal",
     role: "Junior Partner (CA, B.COM)",
     bio: "Began his professional career as a Credit Manager at an NBFC. He has developed significant expertise in distressed asset recovery. His key competencies include buy-side due diligence, consultancy to promoters during insolvency and managing operations related to the resolution of NPAs.",
+    photo: "/images/team/Mayank-Photo.jpeg"
   },
   {
     name: "Shreyansh Jain",
     role: "FCA, Insolvency Professional",
     bio: "Partner at the CA firm Jain & Kochhandani, established in 1987. With 15 years of experience spanning insolvency and bankruptcy law audit, he has worked across various services including property, pharmaceuticals, textiles, paper manufacturing, real estate and infrastructure. He has successfully resolved three Corporate Insolvency Resolution Process (CIRP) cases and one liquidation.",
+    photo: "/images/team/shreyansh-jain.jpeg",
   },
   {
     name: "Pankaj Bhattad",
@@ -49,6 +55,7 @@ const LEADERSHIP = [
     name: "Nikhil Agarwal",
     role: "FCA, Insolvency Professional",
     bio: "A highly accomplished Chartered Accountant with over 9 years of experience in auditing, consulting, and financial due diligence. Nikhil has a proven track record of delivering exceptional results at top-tier accounting firms. He has also successfully transitioned into entrepreneurship, establishing manufacturing units in Surat and Vapi.",
+    photo: "/images/team/nikhil-agarwal.jpeg",
   },
   {
     name: "Milap Jain",
@@ -60,10 +67,22 @@ const LEADERSHIP = [
 function TeamCard({ person }) {
   return (
     <div className="card-lift flex items-stretch min-h-[230px] bg-white border border-[var(--line)] rounded-xl overflow-hidden">
-      <ImagePlaceholder
-        label={`Photo — ${person.name}`}
-        className="w-[38%] shrink-0 self-stretch"
-      />
+      {person.photo ? (
+        <div className="relative w-[38%] shrink-0 self-stretch">
+          <Image
+            src={person.photo}
+            alt={person.name}
+            fill
+            sizes="200px"
+            className="object-cover"
+          />
+        </div>
+      ) : (
+        <ImagePlaceholder
+          label={`Photo — ${person.name}`}
+          className="w-[38%] shrink-0 self-stretch"
+        />
+      )}
       <div className="flex flex-col justify-center gap-2 px-5 py-6 min-w-0">
         <h3 className="font-display font-bold text-[1.1rem] text-[var(--ink)] leading-tight">
           {person.name.toUpperCase()}

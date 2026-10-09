@@ -1,4 +1,5 @@
 import ImagePlaceholder from "../common/ImagePlaceholder";
+import CountUp from "../common/CountUp";
 
 const STATS = [
   {
@@ -38,12 +39,24 @@ export default function ImpactSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="flex flex-col gap-10">
             {STATS.map((stat) => (
-              <div key={stat.title} className="flex items-start gap-5">
-                <div className="shrink-0 flex flex-col items-center justify-center w-20 h-20 rounded-full border-2 border-[var(--brand-soft)] bg-white text-[var(--brand)]">
-                  <span className="text-base font-bold leading-none">{stat.value}</span>
-                  <span className="text-[0.55rem] font-semibold tracking-wide mt-1">
-                    {stat.unit}
-                  </span>
+              <div key={stat.title} className="flex items-center gap-5">
+                <div className="relative shrink-0 flex items-center justify-center w-36 h-36">
+                  <video
+                    src="/decor/circle-border.webm"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="pointer-events-none absolute inset-0 w-full h-full object-contain"
+                  />
+                  <div className="relative z-10 flex flex-col items-center justify-center w-24 h-24 rounded-full bg-white text-[var(--brand)] px-1">
+                    <span className="text-[0.8rem] font-bold leading-none tracking-tight whitespace-nowrap">
+                      <CountUp value={stat.value} />
+                    </span>
+                    <span className="text-[0.55rem] font-semibold tracking-wide mt-1">
+                      {stat.unit}
+                    </span>
+                  </div>
                 </div>
                 <div>
                   <h3 className="font-display font-semibold text-lg text-[var(--ink)] mb-1">
