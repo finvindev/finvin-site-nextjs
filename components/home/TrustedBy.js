@@ -3,12 +3,24 @@
 import { useState } from "react";
 import Image from "next/image";
 import ImagePlaceholder from "../common/ImagePlaceholder";
+import { cldImage } from "../../lib/cloudinary";
 
 const FILTERS = ["Advisory", "Portfolio Sale", "IPE", "EstateDeal", "Retail NPA"];
 
 const PLACEHOLDER_LOGOS = Array.from({ length: 16 }, (_, i) => `Partner logo ${i + 1}`);
 
-const ESTATEDEAL_LOGOS = [
+function buildLogos(folder, items) {
+  return items.map(({ file, label, version }) => ({
+    label,
+    src: cldImage(
+      `finvin/images/logos/${folder}/${file.replace(/\.[^.]+$/, "")}`,
+      "f_auto,q_auto",
+      version
+    ),
+  }));
+}
+
+const ESTATEDEAL_LOGOS = buildLogos("estatedeal", [
   { file: "abc.svg", label: "ABC" },
   { file: "anand-rathi.webp", label: "Anand Rathi" },
   { file: "bank-of-mah.jpg", label: "Bank of Maharashtra" },
@@ -16,15 +28,15 @@ const ESTATEDEAL_LOGOS = [
   { file: "chola-logo.svg", label: "Cholamandalam" },
   { file: "deutsche.png", label: "Deutsche Bank" },
   { file: "earc-logo.png", label: "EARC" },
-  { file: "edelweiss-arc.png", label: "Edelweiss ARC" },
+  { file: "edelweiss-arc.png", label: "Edelweiss ARC", version: 1791541805 },
   { file: "icic-logo.webp", label: "ICIC" },
-  { file: "icici-header-logo.png", label: "ICICI" },
+  { file: "icici-header-logo.png", label: "ICICI", version: 1791541806 },
   { file: "iob.jpg", label: "Indian Overseas Bank" },
   { file: "kmbl-logo.svg", label: "Kotak Mahindra Bank" },
   { file: "logo-header.webp", label: "Partner" },
   { file: "omkara.png", label: "Omkara" },
   { file: "orix.jpg", label: "Orix" },
-  { file: "piramal.svg", label: "Piramal" },
+  { file: "piramal.png", label: "Piramal", version: 1791541803 },
   { file: "reliance-asset-reconstruction-company-limited-logo.jpg", label: "Reliance ARC" },
   { file: "reliance-industries-logo-blk.png", label: "Reliance Industries" },
   { file: "smfg-india-credit-logo.jpg", label: "SMFG India Credit" },
@@ -32,13 +44,32 @@ const ESTATEDEAL_LOGOS = [
   { file: "tata-business-logo-compressor-png.png", label: "Tata" },
   { file: "unionbankofindia-logo.jpg", label: "Union Bank of India" },
   { file: "yes-bank-logo.jpg", label: "Yes Bank" },
-].map(({ file, label }) => ({
-  label,
-  src: `/images/logos/estatedeal/${file}`,
-}));
+]);
 
-const ROW_1 = ESTATEDEAL_LOGOS.filter((_, i) => i % 2 === 0);
-const ROW_2 = ESTATEDEAL_LOGOS.filter((_, i) => i % 2 === 1);
+const PORTFOLIOSALE_LOGOS = buildLogos("portfoliosale", [
+  { file: "agile-finserv-logo.png", label: "Agile Finserv" },
+  { file: "ambit.avif", label: "Ambit" },
+  { file: "amrit.gif", label: "Amrit" },
+  { file: "baid.jpg", label: "Baid" },
+  { file: "creditwise.png", label: "Creditwise" },
+  { file: "edelweiss.png", label: "Edelweiss" },
+  { file: "ez.svg", label: "EZ" },
+  { file: "fed-fina.png", label: "Fedfina" },
+  { file: "finnova.png", label: "Finnova" },
+  { file: "irep.png", label: "IREP" },
+  { file: "midland.png", label: "Midland" },
+  { file: "muthoot-microfin.png", label: "Muthoot Microfin" },
+  { file: "sugmya.png", label: "Sugmya" },
+  { file: "universal.svg", label: "Universal" },
+]);
+
+const splitRows = (logos) => [
+  logos.filter((_, i) => i % 2 === 0),
+  logos.filter((_, i) => i % 2 === 1),
+];
+
+const [ESTATEDEAL_ROW_1, ESTATEDEAL_ROW_2] = splitRows(ESTATEDEAL_LOGOS);
+const [PORTFOLIOSALE_ROW_1, PORTFOLIOSALE_ROW_2] = splitRows(PORTFOLIOSALE_LOGOS);
 
 function LogoMarqueeRow({ logos, direction }) {
   const track = [...logos, ...logos];
@@ -102,8 +133,13 @@ export default function TrustedBy() {
 
         {active === "EstateDeal" ? (
           <div className="mt-12 flex flex-col gap-8">
-            <LogoMarqueeRow logos={ROW_1} direction="left" />
-            <LogoMarqueeRow logos={ROW_2} direction="right" />
+            <LogoMarqueeRow logos={ESTATEDEAL_ROW_1} direction="left" />
+            <LogoMarqueeRow logos={ESTATEDEAL_ROW_2} direction="right" />
+          </div>
+        ) : active === "Portfolio Sale" ? (
+          <div className="mt-12 flex flex-col gap-8">
+            <LogoMarqueeRow logos={PORTFOLIOSALE_ROW_1} direction="left" />
+            <LogoMarqueeRow logos={PORTFOLIOSALE_ROW_2} direction="right" />
           </div>
         ) : (
           <div className="mt-12 grid grid-cols-4 sm:grid-cols-8 gap-px bg-[var(--line)] border border-[var(--line)]">

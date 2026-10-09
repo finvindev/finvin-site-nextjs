@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { cldImage } from "../../lib/cloudinary";
 
 const NAV_LINKS = [
   { label: "Services", href: "#" },
@@ -13,7 +14,7 @@ export default function Header() {
       <div className="max-w-[1366px] mx-auto flex items-center justify-between px-6 sm:px-10 py-5">
         <a href="/" className="flex items-center shrink-0">
           <Image
-            src="/images/finvin-logo.png"
+            src={cldImage("finvin/images/finvin-logo")}
             alt="Finvin"
             width={170}
             height={46}
