@@ -141,6 +141,82 @@ body {
   }
 }
 
+/* Our Journey — neon path connecting year nodes on the mountain photo */
+.journey-path {
+  stroke: #4fd8ff;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 3px #4fd8ff) drop-shadow(0 0 9px rgba(79, 216, 255, 0.7));
+  opacity: 0.85;
+}
+
+.journey-node {
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 1;
+  outline: none;
+}
+
+.journey-node:hover,
+.journey-node:focus-visible {
+  z-index: 20;
+}
+
+/* Year/title/description label — always visible, sits just above the
+   connector line. Rises further on hover, in lockstep with the line
+   growing taller beneath it (same 32px delta, so the line always
+   visibly reaches the card — no gap, no disconnect). */
+.journey-card {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journey-node:hover .journey-card,
+.journey-node:focus-visible .journey-card {
+  transform: translateX(-50%) translateY(-32px);
+}
+
+/* Dotted connector — bottom edge pinned to the dot (anchored on the
+   mountain path) via `bottom: 0`; only its height changes, so growing
+   it extends the top edge upward while the bottom stays put. */
+.journey-line {
+  width: 0;
+  height: 40px;
+  border-left: 2px dotted #4fd8ff;
+  box-shadow: 0 0 4px rgba(79, 216, 255, 0.5);
+  transition: height 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journey-node:hover .journey-line,
+.journey-node:focus-visible .journey-line {
+  height: 72px;
+}
+
+.journey-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  background: #4fd8ff;
+  border: 2px solid #ffffff;
+  transform: translateX(-50%);
+  box-shadow: 0 0 4px rgba(79, 216, 255, 0.6);
+  transition: box-shadow 300ms ease;
+}
+
+.journey-node:hover .journey-dot,
+.journey-node:focus-visible .journey-dot {
+  box-shadow: 0 0 6px #4fd8ff, 0 0 14px rgba(79, 216, 255, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-line,
+  .journey-dot {
+    transition-duration: 1ms;
+  }
+}
+
 /* Logo marquee rows — continuous, opposite-direction scroll */
 @keyframes marquee-left {
   from {
@@ -177,5 +253,34 @@ body {
   .animate-marquee-left,
   .animate-marquee-right {
     animation: none;
+  }
+}
+
+/* Service page sections — scroll-triggered entrance. Heading, intro,
+   each bullet list, and the image fade + rise into place in a staggered
+   sequence (via inline transition-delay) once the section scrolls into
+   view. Runs once on load/refresh when each section first appears. */
+.sb-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sb-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sb-reveal-image {
+  transform: translateY(32px) scale(0.96);
+}
+.sb-reveal-image.is-visible {
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-reveal,
+  .sb-reveal-image {
+    transition: none;
+    opacity: 1;
+    transform: none;
   }
 }
