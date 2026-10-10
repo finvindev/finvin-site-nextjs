@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { cldImage } from "../../lib/cloudinary";
 
 export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden">
       <Image
-        src={cldImage("finvin/images/homepage-hero")}
+        src="/images/homepage-hero.png"
         alt="Helping India revive distressed assets"
         fill
         priority

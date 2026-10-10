@@ -6,12 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "upload-assets": "node scripts/upload-to-cloudinary.js"
+    "lint": "next lint"
   },
   "dependencies": {
-    "cloudinary": "^2.11.0",
-    "dotenv": "^18.0.6",
     "next": "15.3.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

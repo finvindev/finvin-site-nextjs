@@ -26,7 +26,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# local media — source files live on Cloudinary now
+# local staging folder for raw media before processing
 /assets
-/public/images
-/public/decor
