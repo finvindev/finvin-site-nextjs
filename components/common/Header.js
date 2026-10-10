@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "Services", href: "/services" },
@@ -8,6 +11,8 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="absolute top-0 inset-x-0 z-20 w-full bg-transparent">
       <div className="max-w-[1366px] mx-auto flex items-center justify-between px-6 sm:px-10 py-5">
@@ -26,15 +31,23 @@ export default function Header() {
           className="hidden md:flex items-center rounded-full border px-3 py-2.5"
           style={{ borderColor: "#000" }}
         >
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="px-6 py-2 text-sm font-semibold tracking-[0.06em] text-[var(--ink)] uppercase rounded-full hover:bg-[var(--paper-2)] transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = link.href !== "#" && pathname === link.href;
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                className="relative px-6 py-2 text-sm font-semibold tracking-[0.06em] text-[var(--ink)] uppercase group"
+              >
+                {link.label}
+                <span
+                  className={`absolute left-6 right-6 -bottom-0.5 h-[2px] bg-[var(--brand)] origin-center transition-transform duration-200 ease-out ${
+                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </a>
+            );
+          })}
         </nav>
 
         <button
