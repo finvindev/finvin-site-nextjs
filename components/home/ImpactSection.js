@@ -1,6 +1,4 @@
-import ImagePlaceholder from "../common/ImagePlaceholder";
 import CountUp from "../common/CountUp";
-import { cldVideo } from "../../lib/cloudinary";
 
 const STATS = [
   {
@@ -43,7 +41,7 @@ export default function ImpactSection() {
               <div key={stat.title} className="flex items-center gap-5">
                 <div className="relative shrink-0 flex items-center justify-center w-36 h-36">
                   <video
-                    src={cldVideo("finvin/decor/circle-border")}
+                    src="/decor/circle-border.webm"
                     autoPlay
                     loop
                     muted
@@ -69,9 +67,13 @@ export default function ImpactSection() {
             ))}
           </div>
 
-          <ImagePlaceholder
-            label="Impact photo — resolved distressed asset"
-            className="w-full aspect-[4/3] rounded-2xl"
+          <video
+            src="/images/homepage-ai-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full aspect-[4/3] rounded-2xl object-cover"
           />
         </div>
       </div>
