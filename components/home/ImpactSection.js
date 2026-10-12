@@ -40,14 +40,7 @@ export default function ImpactSection() {
             {STATS.map((stat) => (
               <div key={stat.title} className="flex items-center gap-5">
                 <div className="relative shrink-0 flex items-center justify-center w-36 h-36">
-                  <video
-                    src="/decor/circle-border.webm"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="pointer-events-none absolute inset-0 w-full h-full object-contain"
-                  />
+                  <div className="stat-ring pointer-events-none absolute inset-0 rounded-full" />
                   <div className="relative z-10 flex flex-col items-center justify-center w-24 h-24 rounded-full bg-white text-[var(--brand)] px-1">
                     <span className="text-[0.8rem] font-bold leading-none tracking-tight whitespace-nowrap">
                       <CountUp value={stat.value} />

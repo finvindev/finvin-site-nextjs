@@ -1,18 +1,47 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function FYReview() {
   const videoRef = useRef(null);
+  const sectionRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlay = () => {
-    videoRef.current?.play();
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = false;
+    video.play();
     setIsPlaying(true);
   };
 
+  useEffect(() => {
+    const node = sectionRef.current;
+    const video = videoRef.current;
+    if (!node || !video) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.muted = true;
+            video.play().then(() => setIsPlaying(true)).catch(() => {});
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="w-full">
+    <section ref={sectionRef} className="w-full">
       <div className="max-w-[1366px] mx-auto px-6 sm:px-10 pt-16 sm:pt-20 pb-20 sm:pb-28 text-center">
         <h2 className="font-display font-bold text-3xl sm:text-4xl">
           <span className="text-[var(--ink)]">FY 25-26 in </span>
@@ -26,7 +55,7 @@ export default function FYReview() {
         <div
           className="relative mt-12 max-w-2xl mx-auto aspect-[914/487]"
           style={{
-            backgroundImage: "url(/images/events/fy-bg-2.png)",
+            backgroundImage: "url(/images/events/fy-bg-2.webp)",
             backgroundSize: "100% 100%",
           }}
         >

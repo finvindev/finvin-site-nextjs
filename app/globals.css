@@ -284,3 +284,31 @@ body {
     transform: none;
   }
 }
+
+/* Stat ring — CSS-only rotating border replacing the old video,
+   avoids cross-device video codec/alpha compatibility issues entirely. */
+@keyframes stat-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.stat-ring {
+  animation: stat-ring-spin 6s linear infinite;
+  background: conic-gradient(
+    from 0deg,
+    var(--brand) 0deg,
+    var(--brand-2) 40deg,
+    transparent 95deg,
+    transparent 265deg,
+    var(--brand) 360deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-ring {
+    animation: none;
+  }
+}

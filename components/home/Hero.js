@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden min-h-[640px] sm:min-h-0">
       <Image
-        src="/images/homepage-hero.png"
+        src="/images/homepage-hero.jpg"
         alt="Helping India revive distressed assets"
         fill
         priority

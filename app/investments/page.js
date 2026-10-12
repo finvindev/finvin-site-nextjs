@@ -16,7 +16,7 @@ const INVESTMENTS = [
       "We invest in S.R., backed by a Secured Retail Portfolio. NCDs are backed by structured trades between NBFCs and ARCS",
     statValue: "₹45 Cr+",
     statCaption: "Gross Employment • FY25–26",
-    image: "/images/investments/investment-1.png",
+    image: "/images/investments/investment-1.jpg",
     imageAlt: "Retail portfolio — residential apartment complex",
   },
   {
@@ -29,7 +29,7 @@ const INVESTMENTS = [
       "We invest in debt backed by wholesale assets, alongside ARCs, where we have sector-level expertise. We focus on opportunities with a clear, actionable resolution strategy.",
     statValue: "₹33 Cr+",
     statCaption: "Gross Employment • FY25–26",
-    image: "/images/investments/investment-2.png",
+    image: "/images/investments/investment-2.jpg",
     imageAlt: "Wholesale debt — industrial warehouse facility",
   },
   {
@@ -42,7 +42,7 @@ const INVESTMENTS = [
       "Acquisition of the Company through a resolution plan. Acquisition of assets under Liquidation. Acquisition of property under SARFAESI auction",
     statValue: "2 Assets",
     statCaption: "Currently in Acquisition",
-    image: "/images/investments/investment-3.png",
+    image: "/images/investments/investment-3.jpg",
     imageAlt: "Distressed asset transformed into a modern commercial building",
   },
 ];
