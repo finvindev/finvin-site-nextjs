@@ -8,6 +8,7 @@ export const metadata = {
 
 const INVESTMENTS = [
   {
+    id: "retail-portfolios",
     heading: "Investing Where Value Can Be Unlocked",
     subtext: "Structured opportunities across distressed debt, portfolios & assets.",
     subheading: "Retail Portfolios",
@@ -20,6 +21,7 @@ const INVESTMENTS = [
     imageAlt: "Retail portfolio — residential apartment complex",
   },
   {
+    id: "wholesale-debt",
     heading: "Wholesale Debt for Strategic Resolution",
     subtext:
       "Asset-backed wholesale debt with strong collateral structures and resolution-led opportunities.",
@@ -33,6 +35,7 @@ const INVESTMENTS = [
     imageAlt: "Wholesale debt — industrial warehouse facility",
   },
   {
+    id: "ibc-liquidation",
     heading: "From Distressed Assets to Lasting Value",
     subtext:
       "Acquiring companies and assets through IBC liquidation and SARFAESI processes.",

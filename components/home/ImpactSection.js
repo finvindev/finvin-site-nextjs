@@ -23,7 +23,7 @@ const STATS = [
 
 export default function ImpactSection() {
   return (
-    <section className="w-full bg-[var(--paper-2)]">
+    <section id="our-impact" className="w-full bg-[var(--paper-2)] scroll-mt-28">
       <div className="max-w-[1366px] mx-auto px-6 sm:px-10 py-20">
         <div className="text-center mb-14">
           <p className="eyebrow text-[var(--brand)] text-xs font-bold tracking-[0.2em] uppercase mb-3">

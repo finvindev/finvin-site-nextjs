@@ -1,25 +1,45 @@
+import Link from "next/link";
+
 const COLUMNS = [
   {
     title: "Overview",
-    links: ["Our Impact", "Leadership Team", "Board of Directors"],
+    links: [
+      { label: "Our Impact", href: "/#our-impact" },
+      { label: "Leadership Team", href: "/#leadership-team" },
+      { label: "Board of Directors", href: "/#leadership-team" },
+    ],
   },
   {
     title: "Services",
     links: [
-      "Advisory Services",
-      "Portfolio Sale",
-      "Insolvency Professional Entity",
-      "EstateDeal.in",
-      "Retail NPA Pool Servicing",
+      { label: "Advisory Services", href: "/services#advisory-services" },
+      { label: "Portfolio Sale", href: "/services#portfolio-sell" },
+      {
+        label: "Insolvency Professional Entity",
+        href: "/services#insolvency-professional-entity",
+      },
+      { label: "EstateDeal.in", href: "/services#estatedeal-in" },
+      {
+        label: "Retail NPA Pool Servicing",
+        href: "/services#retail-npa-pool-services",
+      },
     ],
   },
   {
     title: "Investments",
-    links: ["Retail", "Wholesale", "Company Under NCLT"],
+    links: [
+      { label: "Retail", href: "/investments#retail-portfolios" },
+      { label: "Wholesale", href: "/investments#wholesale-debt" },
+      { label: "Company Under NCLT", href: "/investments#ibc-liquidation" },
+    ],
   },
   {
     title: "Events",
-    links: ["Conferences", "Life at FINVIN", "Career"],
+    links: [
+      { label: "Conferences", href: "/events#conferences" },
+      { label: "Life at FINVIN", href: "/events#life-at-finvin" },
+      { label: "Career", href: "/events#career" },
+    ],
   },
   {
     title: "Deals",
@@ -52,10 +72,10 @@ export default function Footer() {
               <h3 className="text-white font-semibold text-sm mb-4">{col.title}</h3>
               <ul className="space-y-3 text-sm">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="hover:text-white transition-colors">
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    <Link href={link.href} className="hover:text-white transition-colors">
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
