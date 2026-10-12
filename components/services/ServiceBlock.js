@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import ImagePlaceholder from "../common/ImagePlaceholder";
 
 export default function ServiceBlock({
+  id,
   title,
   intro,
   lists,
@@ -37,7 +38,7 @@ export default function ServiceBlock({
   const reveal = inView ? "sb-reveal is-visible" : "sb-reveal";
 
   return (
-    <section ref={sectionRef} className="w-full">
+    <section id={id} ref={sectionRef} className="w-full scroll-mt-28">
       <div className="max-w-[1366px] mx-auto px-6 sm:px-10 py-14 sm:py-20">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div className={imageFirst ? "lg:order-2" : "lg:order-1"}>

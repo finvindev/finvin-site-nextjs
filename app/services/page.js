@@ -9,6 +9,7 @@ export const metadata = {
 
 const SERVICES = [
   {
+    id: "advisory-services",
     title: "Advisory Services",
     imageSide: "right",
     imageLabel: "Advisory services — stressed asset resolution",
@@ -34,6 +35,7 @@ const SERVICES = [
     ],
   },
   {
+    id: "portfolio-sell",
     title: "Portfolio Sell",
     imageSide: "left",
     imageLabel: "Portfolio sale — distressed asset transactions",
@@ -54,6 +56,7 @@ const SERVICES = [
     ],
   },
   {
+    id: "insolvency-professional-entity",
     title: "Insolvency Professional Entity",
     imageSide: "right",
     imageLabel: "Insolvency Professional Entity — IBC support",
@@ -85,6 +88,7 @@ const SERVICES = [
     ],
   },
   {
+    id: "estatedeal-in",
     title: "Estatedeal.in",
     imageSide: "left",
     imageLabel: "Estatedeal.in — bank auction properties",
@@ -105,6 +109,7 @@ const SERVICES = [
     ],
   },
   {
+    id: "retail-npa-pool-services",
     title: "Retail NPA Pool Services",
     imageSide: "right",
     imageLabel: "Retail NPA Pool — loan servicing & recovery",

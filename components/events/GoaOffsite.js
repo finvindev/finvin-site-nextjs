@@ -24,7 +24,7 @@ const HIGHLIGHTS = [
 
 export default function GoaOffsite() {
   return (
-    <section className="w-full bg-[#f8f8f8]">
+    <section id="conferences" className="w-full bg-[#f8f8f8] scroll-mt-28">
       <div className="max-w-[1366px] mx-auto px-6 sm:px-10 py-16 sm:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>

@@ -126,7 +126,7 @@ export default function TeamSection() {
   const people = tab === "founders" ? FOUNDERS : LEADERSHIP;
 
   return (
-    <section className="relative w-full bg-white overflow-hidden">
+    <section id="leadership-team" className="relative w-full bg-white overflow-hidden scroll-mt-28">
       <img
         src="/decor/circle-rings.png"
         alt=""
