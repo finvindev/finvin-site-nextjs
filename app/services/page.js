@@ -138,7 +138,7 @@ export default function ServicesPage() {
           <ServiceBlock key={service.title} {...service} />
         ))}
       </div>
-      <OurJourney backgroundImage="/images/services/our-journey-hero.png" />
+      <OurJourney backgroundImage="/images/services/our-journey-hero.webp" />
     </>
   );
 }

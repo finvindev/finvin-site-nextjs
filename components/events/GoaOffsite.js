@@ -5,19 +5,19 @@ const HIGHLIGHTS = [
   {
     tag: "DAY 01",
     title: "Conference",
-    image: "/images/events/goa/conference.png",
+    image: "/images/events/goa/conference.jpg",
     alt: "Goa offsite — conference",
   },
   {
     tag: "DAY 02",
     title: "Pool Party",
-    image: "/images/events/goa/pool-party.png",
+    image: "/images/events/goa/pool-party.jpg",
     alt: "Goa offsite — pool party",
   },
   {
     tag: "DAY 03",
     title: "DJ Night",
-    image: "/images/events/goa/dj.png",
+    image: "/images/events/goa/dj.jpg",
     alt: "Goa offsite — DJ night",
   },
 ];
@@ -47,7 +47,7 @@ export default function GoaOffsite() {
 
           <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
             <Image
-              src="/images/events/goa/goa-offsite.png"
+              src="/images/events/goa/goa-offsite.jpg"
               alt="Goa offsite — team group photo"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
