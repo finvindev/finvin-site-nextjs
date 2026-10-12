@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -34,12 +35,12 @@ export default function Hero() {
           >
             Schedule a Consultation
           </a>
-          <a
-            href="#"
+          <Link
+            href="/services"
             className="rounded-full bg-[var(--paper-2)] text-[var(--ink)] text-sm font-semibold px-6 py-3 hover:bg-[var(--line)] transition-colors"
           >
             Explore Opportunity
-          </a>
+          </Link>
         </div>
       </div>
     </section>
