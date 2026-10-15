@@ -83,7 +83,7 @@ const RETAIL_NPA_LOGOS = buildLogos("retail-npa", [
   { file: "asrec-logo.jpg", label: "ASREC" },
   { file: "acre.png", label: "Acre" },
   { file: "cfm-logo.png", label: "CFM" },
-  { file: "jcf.png", label: "JCF" },
+  { file: "JCF.png", label: "JCF" },
   { file: "arcil-logo.svg", label: "Arcil" },
   { file: "finnova.png", label: "Finnova" },
   { file: "rare-logo.png", label: "Rare" },
