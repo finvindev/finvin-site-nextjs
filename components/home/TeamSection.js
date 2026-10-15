@@ -56,6 +56,7 @@ const LEADERSHIP = [
     name: "Pankaj Bhattad",
     role: "FCA, Insolvency Professional",
     bio: "Partner at M L Bhattad and Company. He has served as GST consultant on various projects for Banks / Financial Institutions. Accounting & Fraud Audit for Allahabad Bank and Barclays Bank conducted under GST (RBI) for ICAI. In addition, he is proficient in preparing project reports and managing operations.",
+    photo: "/images/team/Pankaj.png",
     linkedin: "https://www.linkedin.com/in/ca-ip-pankaj-bhattad-03156067/",
   },
   {
@@ -69,6 +70,7 @@ const LEADERSHIP = [
     name: "Milap Jain",
     role: "FCA, Insolvency Professional",
     bio: "A financial expert with over 20 years of experience across the finance industry. He has worked across the retail banking, stock broking, asset and wealth management. His background includes 8 years as an independent Chartered Accountant and has expertise across financial management, audits, regulatory compliance, budgeting and business analysis.",
+    photo: "/images/team/Milap.jpg",
     linkedin: "https://www.linkedin.com/in/milaap-jain-24598a1b/",
   },
 ];
