@@ -79,6 +79,16 @@ const IPE_LOGOS = buildLogos("ipe", [
   { file: "privilege.png", label: "Privilege" },
 ]);
 
+const RETAIL_NPA_LOGOS = buildLogos("retail-npa", [
+  { file: "asrec-logo.jpg", label: "ASREC" },
+  { file: "acre.png", label: "Acre" },
+  { file: "cfm-logo.png", label: "CFM" },
+  { file: "jcf.png", label: "JCF" },
+  { file: "arcil-logo.svg", label: "Arcil" },
+  { file: "finnova.png", label: "Finnova" },
+  { file: "rare-logo.png", label: "Rare" },
+]);
+
 const splitRows = (logos) => [
   logos.filter((_, i) => i % 2 === 0),
   logos.filter((_, i) => i % 2 === 1),
@@ -89,9 +99,10 @@ const LOGO_SETS = {
   "Portfolio Sale": PORTFOLIOSALE_LOGOS,
   IPE: IPE_LOGOS,
   EstateDeal: ESTATEDEAL_LOGOS,
+  "Retail NPA": RETAIL_NPA_LOGOS,
 };
 
-const SINGLE_ROW_FILTERS = new Set(["Advisory", "IPE"]);
+const SINGLE_ROW_FILTERS = new Set(["Advisory", "IPE", "Retail NPA"]);
 
 const MIN_TRACK_ITEMS = 10;
 
