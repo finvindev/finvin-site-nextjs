@@ -94,6 +94,8 @@ const SERVICES = [
     imageLabel: "Estatedeal.in — bank auction properties",
     intro:
       "Estatedeal.in is a technology platform designed to streamline the sale of non-performing assets. We offer a complete end-to-end solution for banks, managing every aspect of the property sales process.",
+    ctaLabel: "Visit Estate Deals",
+    ctaHref: "https://estatedeal.in",
     lists: [
       {
         heading: "We manage the following functions under this group:",

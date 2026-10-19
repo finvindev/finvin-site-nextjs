@@ -18,7 +18,7 @@ const COLUMNS = [
         label: "Insolvency Professional Entity",
         href: "/services#insolvency-professional-entity",
       },
-      { label: "EstateDeal.in", href: "/services#estatedeal-in" },
+      { label: "Estate Deals", href: "https://estatedeal.in", external: true },
       {
         label: "Retail NPA Pool Servicing",
         href: "/services#retail-npa-pool-services",
@@ -71,13 +71,26 @@ export default function Footer() {
             <div key={col.title}>
               <h3 className="text-white font-semibold text-sm mb-4">{col.title}</h3>
               <ul className="space-y-3 text-sm">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="hover:text-white transition-colors">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+                {col.links.map((link) =>
+                  link.external ? (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={link.label}>
+                      <Link href={link.href} className="hover:text-white transition-colors">
+                        {link.label}
+                      </Link>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           ))}

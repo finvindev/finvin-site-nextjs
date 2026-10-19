@@ -10,6 +10,8 @@ export default function ServiceBlock({
   lists,
   imageLabel,
   imageSide = "right",
+  ctaLabel,
+  ctaHref,
 }) {
   const imageFirst = imageSide === "left";
   const sectionRef = useRef(null);
@@ -78,6 +80,27 @@ export default function ServiceBlock({
                 </ul>
               </div>
             ))}
+
+            {ctaHref && (
+              <a
+                href={ctaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${reveal} mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--brand-2)] transition-colors`}
+                style={{ transitionDelay: `${220 + lists.length * 120}ms` }}
+              >
+                {ctaLabel || "Visit Website"}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M7 17L17 7M17 7H9M17 7V15"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            )}
           </div>
 
           <ImagePlaceholder
