@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "Investments", href: "/investments" },
   { label: "Events", href: "/events" },
   { label: "Deals", href: "#" },
+  { label: "Estate Deals", href: "https://estatedeal.in", external: true },
 ];
 
 export default function Header() {
@@ -39,6 +40,7 @@ export default function Header() {
               <a
                 key={link.label}
                 href={link.href}
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="relative px-6 py-2 text-sm font-semibold tracking-[0.06em] text-[var(--ink)] uppercase group"
               >
                 {link.label}
@@ -102,6 +104,7 @@ export default function Header() {
               <a
                 key={link.label}
                 href={link.href}
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 onClick={() => setMenuOpen(false)}
                 className={`font-display font-semibold text-lg px-4 py-3.5 rounded-xl transition-colors ${
                   isActive
