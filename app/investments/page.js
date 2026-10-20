@@ -1,9 +1,24 @@
 import InvestmentBlock from "../../components/investments/InvestmentBlock";
 
+const PAGE_TITLE = "Investments";
+const PAGE_DESCRIPTION =
+  "Structured investment opportunities across distressed debt, retail portfolios, wholesale debt and IBC & liquidation assets.";
+
 export const metadata = {
-  title: "Investments | Finvin Turnaround & Restructuring Pvt. Ltd.",
-  description:
-    "Structured investment opportunities across distressed debt, retail portfolios, wholesale debt and IBC & liquidation assets.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: {
+    canonical: "/investments",
+  },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: "/investments",
+  },
+  twitter: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
 };
 
 const INVESTMENTS = [

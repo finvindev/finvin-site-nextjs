@@ -5,10 +5,25 @@ import LifeAtFinvin from "../../components/events/LifeAtFinvin";
 import FYReview from "../../components/events/FYReview";
 import CareerSection from "../../components/events/CareerSection";
 
+const PAGE_TITLE = "Events";
+const PAGE_DESCRIPTION =
+  "Life at Finvin — team offsites, celebrations, culture and open career opportunities.";
+
 export const metadata = {
-  title: "Events | Finvin Turnaround & Restructuring Pvt. Ltd.",
-  description:
-    "Life at Finvin — team offsites, celebrations, culture and open career opportunities.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: {
+    canonical: "/events",
+  },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: "/events",
+  },
+  twitter: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
 };
 
 export default function EventsPage() {

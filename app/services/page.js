@@ -1,10 +1,25 @@
 import ServiceBlock from "../../components/services/ServiceBlock";
 import OurJourney from "../../components/services/OurJourney";
 
+const PAGE_TITLE = "Services";
+const PAGE_DESCRIPTION =
+  "Advisory Services, Portfolio Sale, Insolvency Professional Entity, EstateDeal.in and Retail NPA Pool Services from Finvin.";
+
 export const metadata = {
-  title: "Services | Finvin Turnaround & Restructuring Pvt. Ltd.",
-  description:
-    "Advisory Services, Portfolio Sale, Insolvency Professional Entity, EstateDeal.in and Retail NPA Pool Services from Finvin.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: "/services",
+  },
+  twitter: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
 };
 
 const SERVICES = [

@@ -4,6 +4,12 @@ import TeamSection from "../components/home/TeamSection";
 import TrustedBy from "../components/home/TrustedBy";
 import CTABanner from "../components/home/CTABanner";
 
+export const metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function Home() {
   return (
     <>
