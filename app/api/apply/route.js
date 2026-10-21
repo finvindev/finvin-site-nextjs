@@ -1,4 +1,6 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
   try {
@@ -20,29 +22,29 @@ export async function POST(request) {
 
     const attachments = [];
     const resumeBuffer = Buffer.from(await resume.arrayBuffer());
-    attachments.push({ filename: resume.name, content: resumeBuffer });
+    attachments.push({ filename: resume.name, content: resumeBuffer.toString("base64") });
 
     if (coverLetter && coverLetter.size > 0) {
       const coverBuffer = Buffer.from(await coverLetter.arrayBuffer());
-      attachments.push({ filename: coverLetter.name, content: coverBuffer });
+      attachments.push({ filename: coverLetter.name, content: coverBuffer.toString("base64") });
     }
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
-      },
-    });
-
-    await transporter.sendMail({
-      from: process.env.GMAIL_USER,
-      to: process.env.CAREERS_EMAIL || process.env.GMAIL_USER,
+    const { error } = await resend.emails.send({
+      from: process.env.RESEND_FROM || "onboarding@resend.dev",
+      to: process.env.CAREERS_EMAIL,
       replyTo: email,
       subject: `New application: ${role} — ${fullName}`,
       text: `Full Name: ${fullName}\nPhone: ${phone}\nEmail: ${email}\nRole Applying For: ${role}`,
       attachments,
     });
+
+    if (error) {
+      console.error("Career application submission failed:", error);
+      return Response.json(
+        { error: "Something went wrong while sending your application." },
+        { status: 500 }
+      );
+    }
 
     return Response.json({ ok: true });
   } catch (err) {
