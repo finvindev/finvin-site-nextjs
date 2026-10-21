@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useConsultationModal } from "./ConsultationModalContext";
 
 const NAV_LINKS = [
   { label: "Services", href: "/services" },
@@ -15,6 +16,7 @@ const NAV_LINKS = [
 export default function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openModal } = useConsultationModal();
 
   return (
     <header className="absolute top-0 inset-x-0 z-50 w-full bg-transparent">
@@ -119,12 +121,16 @@ export default function Header() {
         </nav>
 
         <div className="mt-auto px-6 py-6 border-t" style={{ borderColor: "var(--line)" }}>
-          <a
-            href="#"
-            className="block text-center rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--brand-2)] transition-colors"
+          <button
+            type="button"
+            onClick={() => {
+              setMenuOpen(false);
+              openModal();
+            }}
+            className="block w-full text-center rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--brand-2)] transition-colors"
           >
             Schedule a Consultation
-          </a>
+          </button>
         </div>
       </div>
     </header>

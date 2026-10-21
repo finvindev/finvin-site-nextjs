@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useConsultationModal } from "../common/ConsultationModalContext";
 
 export default function Hero() {
+  const { openModal } = useConsultationModal();
+
   return (
     <section className="relative w-full overflow-hidden min-h-[640px] sm:min-h-0">
       <Image
@@ -29,14 +34,15 @@ export default function Hero() {
         </p>
 
         <div className="animate-hero-up [animation-delay:600ms] mt-8 flex flex-wrap items-center gap-4">
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={openModal}
             className="rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--brand-2)] transition-colors"
           >
             Schedule a Consultation
-          </a>
+          </button>
           <Link
-            href="/services"
+            href="/events#career"
             className="rounded-full bg-[var(--paper-2)] text-[var(--ink)] text-sm font-semibold px-6 py-3 hover:bg-[var(--line)] transition-colors"
           >
             Explore Opportunity
