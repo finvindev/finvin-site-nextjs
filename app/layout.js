@@ -3,6 +3,8 @@ import "./globals.css";
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 import WhatsAppButton from "../components/common/WhatsAppButton";
+import { ConsultationModalProvider } from "../components/common/ConsultationModalContext";
+import ConsultationModal from "../components/common/ConsultationModal";
 import { site } from "@/content/site";
 
 const libreBaskerville = Libre_Baskerville({
@@ -92,10 +94,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${libreBaskerville.variable} antialiased min-h-screen flex flex-col relative`}
       >
-        <Header />
-        <div className="flex-1 w-full">{children}</div>
-        <Footer />
-        <WhatsAppButton />
+        <ConsultationModalProvider>
+          <Header />
+          <div className="flex-1 w-full">{children}</div>
+          <Footer />
+          <WhatsAppButton />
+          <ConsultationModal />
+        </ConsultationModalProvider>
       </body>
     </html>
   );
