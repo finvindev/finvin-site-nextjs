@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const COLUMNS = [
@@ -5,8 +6,8 @@ const COLUMNS = [
     title: "Overview",
     links: [
       { label: "Our Impact", href: "/#our-impact" },
-      { label: "Leadership Team", href: "/#leadership-team" },
-      { label: "Board of Directors", href: "/#leadership-team" },
+      { label: "Leadership Team", href: "/?team=leadership#leadership-team" },
+      { label: "Founders", href: "/?team=founders#leadership-team" },
     ],
   },
   {
@@ -47,56 +48,111 @@ const COLUMNS = [
   },
 ];
 
+const BRANCHES = [
+  {
+    city: "Mumbai",
+    address:
+      "605, Sunteck Crest, Mukund Nagar, Andheri Kurla Road, Andheri (E), Mumbai – 400 059",
+  },
+  {
+    city: "Delhi/NCR",
+    address:
+      "C-60, 3rd Floor, C-Block Community Centre, Janak Cinema Complex, Janak Puri, New Delhi, NCT of Delhi – 110058",
+  },
+  {
+    city: "Hyderabad",
+    address:
+      "6-1-130, Pillar No. 276, Inner Ring Rd, Vivekananda Nagar, Shivarampally, Jagir, Telangana – 500052",
+  },
+  {
+    city: "Nagpur",
+    address: "A 503 Keshav Imperial, Shani Mandir Road, Sitabuldi, Nagpur – 440012",
+  },
+  {
+    city: "Jaipur",
+    address: "3rd Floor of E-6, Gautam Marg, Vaishali Nagar, Jaipur – 302021",
+  },
+  {
+    city: "Bhopal",
+    address: "223, Maharana Pratap Nagar, Zone II, Bhopal",
+  },
+  {
+    city: "Indore",
+    address: "401, 4th Floor, Mangal City Mall, Scheme No. 54, Vijay Nagar, Indore, M.P. – 452010",
+  },
+];
+
 export default function Footer() {
   return (
     <footer className="w-full bg-[var(--navy)] text-white/80">
       <div className="max-w-[1366px] mx-auto px-6 sm:px-10 pt-16 pb-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid lg:grid-cols-[1fr_2.2fr] gap-12">
           <div>
-            <h3 className="text-white font-semibold text-sm mb-4">Get In Touch</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <span>+91 86533 53970</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span>info@finvin.co.in</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span>602, Sunteck Crest, Andheri East, Mumbai &ndash; 400059</span>
-              </li>
-            </ul>
+            <Image
+              src="/images/finvin-logo.png"
+              alt="Finvin"
+              width={170}
+              height={46}
+              className="h-11 w-auto brightness-0 invert mb-5"
+            />
+            <p className="text-white font-semibold text-sm mb-3">
+              Finvin Turnaround &amp; Restructuring Pvt. Ltd.
+            </p>
+            <p className="text-sm mb-1">+91 86533 53970</p>
+            <a href="mailto:info@finvin.co.in" className="text-sm hover:text-white transition-colors">
+              info@finvin.co.in
+            </a>
+            <p className="mt-4 text-sm text-white/60 leading-relaxed max-w-sm">
+              Finvin is a distressed asset resolution and advisory firm
+              helping banks, ARCs and investors navigate NPA recovery,
+              insolvency and structured transactions across India.
+            </p>
           </div>
 
-          {COLUMNS.map((col) => (
-            <div key={col.title}>
-              <h3 className="text-white font-semibold text-sm mb-4">{col.title}</h3>
-              <ul className="space-y-3 text-sm">
-                {col.links.map((link) =>
-                  link.external ? (
-                    <li key={link.label}>
-                      <a
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-white transition-colors"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ) : (
-                    <li key={link.label}>
-                      <Link href={link.href} className="hover:text-white transition-colors">
-                        {link.label}
-                      </Link>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-          ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+            {COLUMNS.map((col) => (
+              <div key={col.title}>
+                <h3 className="text-white font-semibold text-sm mb-4">{col.title}</h3>
+                <ul className="space-y-3 text-sm">
+                  {col.links.map((link) =>
+                    link.external ? (
+                      <li key={link.label}>
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-white transition-colors"
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ) : (
+                      <li key={link.label}>
+                        <Link href={link.href} className="hover:text-white transition-colors">
+                          {link.label}
+                        </Link>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
+        <div className="mt-14 pt-10 border-t border-white/10">
+          <h3 className="text-white font-semibold text-sm mb-6">Our Branches</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-8">
+            {BRANCHES.map((branch) => (
+              <div key={branch.city}>
+                <p className="text-white font-semibold text-sm mb-1.5">{branch.city}</p>
+                <p className="text-xs text-white/60 leading-relaxed">{branch.address}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
           <p>&copy; 2026 FINVIN. All rights reserved. FINVIN GROUP</p>
           <div className="flex items-center gap-4">
             <a
