@@ -22,7 +22,7 @@ export const defaultMilestones = [
     y: 91,
     cardGap: 18,
     cardWidth: 180,
-    connectorHeight: 90,
+    connectorHeight: 45,
   },
   {
     year: "2021 – 22",
@@ -34,7 +34,7 @@ export const defaultMilestones = [
     y: 79,
     cardGap: 18,
     cardWidth: 180,
-    connectorHeight: 100,
+    connectorHeight: 45,
   },
   {
     year: "2022 – 23",
@@ -46,7 +46,7 @@ export const defaultMilestones = [
     y: 68,
     cardGap: 18,
     cardWidth: 190,
-    connectorHeight: 105,
+    connectorHeight: 45,
   },
   {
     year: "2023 – 24",
@@ -58,31 +58,29 @@ export const defaultMilestones = [
     y: 59,
     cardGap: 18,
     cardWidth: 190,
-    connectorHeight: 105,
+    connectorHeight: 45,
   },
   {
     year: "2024 – 25",
     title: "Impact",
-    description:
-      "Expanding our impact across IBC, Advisory, Portfolio Sale and Retail NPA solutions.",
+    description: "Growing impact across IBC, Advisory, Portfolio Sale and Retail NPA.",
     icon: Target,
     x: 66,
     y: 50,
-    cardGap: 18,
+    cardGap: 14,
     cardWidth: 185,
-    connectorHeight: 105,
+    connectorHeight: 41,
   },
   {
     year: "2025 – 26",
     title: "Leadership",
-    description:
-      "Evolving into a stronger, more integrated platform across Advisory, IBC Services and Distressed Asset Solutions.",
+    description: "A stronger, integrated platform across Advisory, IBC and Distressed Assets.",
     icon: Mountain,
     x: 78,
     y: 38,
-    cardGap: 18,
-    cardWidth: 205,
-    connectorHeight: 100,
+    cardGap: 10,
+    cardWidth: 195,
+    connectorHeight: 37,
   },
 ];
 
@@ -166,8 +164,10 @@ export default function OurJourney({
       style={{ "--journey-image": `url("${backgroundImage}")` }}
       aria-labelledby="journey-title"
     >
-      <div className="journey__background" aria-hidden="true" />
-      <div className="journey__wash" aria-hidden="true" />
+      <div className="journey__frame" aria-hidden="true">
+        <div className="journey__background" />
+        <div className="journey__wash" />
+      </div>
 
       <header className="journey__heading">
         <div className="journey__eyebrow">

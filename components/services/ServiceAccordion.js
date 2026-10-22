@@ -59,7 +59,7 @@ export default function ServiceAccordion() {
               aria-expanded={isActive}
               style={{ animationDelay: `${index * 90}ms` }}
               className={`animate-accordion-panel relative block w-full text-left rounded-2xl overflow-hidden shadow-[0_12px_30px_rgba(14,26,58,0.15)] transition-[height] duration-500 ease-out ${
-                isActive ? "h-[340px]" : "h-16"
+                isActive ? "h-[260px]" : "h-16"
               }`}
             >
               <ImagePlaceholder label={panel.imageLabel} className="absolute inset-0" />
@@ -81,7 +81,7 @@ export default function ServiceAccordion() {
                     href={`#${panel.id}`}
                     className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#8fd6ff]"
                   >
-                    Explore Services
+                    Read More
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                       <path
                         d="M5 12h14M13 6l6 6-6 6"
@@ -109,7 +109,7 @@ export default function ServiceAccordion() {
 
       {/* Tablet/desktop — horizontal accordion */}
       <div className="hidden md:block">
-        <div className="flex gap-3 h-[520px] lg:h-[600px] overflow-x-auto overflow-y-hidden">
+        <div className="flex gap-3 h-[420px] lg:h-[440px] overflow-x-auto overflow-y-hidden [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
         {PANELS.map((panel, index) => {
           const isActive = index === activeIndex;
           return (
@@ -120,7 +120,7 @@ export default function ServiceAccordion() {
               aria-expanded={isActive}
               style={{ animationDelay: `${index * 90}ms` }}
               className={`animate-accordion-panel relative shrink-0 h-full text-left rounded-2xl overflow-hidden shadow-[0_12px_30px_rgba(14,26,58,0.15)] transition-[flex-basis,flex-grow] duration-500 ease-out ${
-                isActive ? "flex-[5_1_0%] min-w-[280px]" : "flex-[0_0_90px] sm:flex-[0_0_110px]"
+                isActive ? "flex-[5_1_0%] min-w-[220px] lg:min-w-[280px]" : "flex-[0_0_70px] sm:flex-[0_0_90px] lg:flex-[0_0_110px]"
               }`}
             >
               <ImagePlaceholder label={panel.imageLabel} className="absolute inset-0" />
@@ -137,7 +137,7 @@ export default function ServiceAccordion() {
                 style={
                   isActive
                     ? {
-                        top: "calc(100% - 9.5rem)",
+                        top: "calc(100% - 10.5rem)",
                         left: "1.75rem",
                         transform: "translate(0, 0) rotate(0deg)",
                         transformOrigin: "left bottom",
@@ -156,19 +156,18 @@ export default function ServiceAccordion() {
               </div>
 
               <div
-                className={`absolute left-7 right-6 transition-opacity duration-300 max-w-xl ${
+                className={`absolute left-7 right-6 bottom-6 transition-opacity duration-300 max-w-xl ${
                   isActive ? "opacity-100 delay-200" : "opacity-0 pointer-events-none"
                 }`}
-                style={{ top: "calc(100% - 6.25rem)" }}
               >
-                <p className="text-sm sm:text-base text-white/85 leading-relaxed">
+                <p className="text-sm lg:text-base text-white/85 leading-relaxed">
                   {panel.tagline}
                 </p>
                 <a
                   href={`#${panel.id}`}
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#8fd6ff] hover:text-white transition-colors"
+                  className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-[#8fd6ff] hover:text-white transition-colors"
                 >
-                  Explore Services
+                  Read More
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path
                       d="M5 12h14M13 6l6 6-6 6"
