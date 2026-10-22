@@ -312,3 +312,26 @@ body {
     animation: none;
   }
 }
+
+/* Service accordion — panels rise/fade in on page load, staggered via
+   inline animation-delay per panel index. */
+@keyframes accordion-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-accordion-panel {
+  animation: accordion-panel-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-accordion-panel {
+    animation: none;
+  }
+}
