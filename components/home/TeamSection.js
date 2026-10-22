@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import ImagePlaceholder from "../common/ImagePlaceholder";
 
 const FOUNDERS = [
@@ -13,7 +14,7 @@ const FOUNDERS = [
     linkedin: "https://www.linkedin.com/in/mohit-agarwal-4a5b22a0/",
   },
   {
-    name: "Nayan Agarwal",
+    name: "Nayan Agrawal",
     role: "Co-Founder",
     credentials: "CA · CFA · B.COM",
     bio: "Specialises in complex NPA resolution, insolvency and strategic asset recovery, with a deep understanding of financial markets and corporate finance.",
@@ -77,24 +78,24 @@ const LEADERSHIP = [
 
 function TeamCard({ person }) {
   return (
-    <div className="card-lift flex items-stretch min-h-[230px] bg-white border border-[var(--line)] rounded-xl overflow-hidden">
+    <div className="card-lift flex items-stretch gap-5 bg-white border border-[var(--line)] rounded-xl p-5 sm:p-6 min-h-[260px]">
       {person.photo ? (
-        <div className="relative w-[38%] shrink-0 self-stretch">
+        <div className="relative w-28 sm:w-32 shrink-0 self-stretch overflow-hidden">
           <Image
             src={person.photo}
             alt={person.name}
             fill
-            sizes="200px"
+            sizes="130px"
             className="object-cover"
           />
         </div>
       ) : (
         <ImagePlaceholder
           label={`Photo — ${person.name}`}
-          className="w-[38%] shrink-0 self-stretch"
+          className="w-28 sm:w-32 shrink-0 self-stretch"
         />
       )}
-      <div className="flex flex-col justify-center gap-2 px-5 py-6 min-w-0">
+      <div className="flex flex-col gap-2 min-w-0">
         <h3 className="font-display font-bold text-[1.1rem] text-[var(--ink)] leading-tight">
           {person.name.toUpperCase()}
         </h3>
@@ -102,7 +103,7 @@ function TeamCard({ person }) {
         {person.credentials && (
           <p className="text-xs font-medium text-[var(--brand-2)]">{person.credentials}</p>
         )}
-        <p className="text-xs text-[var(--brand-2)] leading-relaxed line-clamp-5">
+        <p className="text-[0.7rem] text-[var(--brand-2)] leading-snug">
           {person.bio}
         </p>
         <a
@@ -124,8 +125,14 @@ function TeamCard({ person }) {
 }
 
 export default function TeamSection() {
+  const searchParams = useSearchParams();
   const [tab, setTab] = useState("founders");
   const people = tab === "founders" ? FOUNDERS : LEADERSHIP;
+
+  useEffect(() => {
+    const team = searchParams.get("team");
+    if (team === "founders" || team === "leadership") setTab(team);
+  }, [searchParams]);
 
   return (
     <section id="leadership-team" className="relative w-full bg-white overflow-hidden scroll-mt-28">
@@ -183,7 +190,7 @@ export default function TeamSection() {
         </div>
 
         <div
-          className={`grid gap-6 ${
+          className={`grid gap-6 items-start ${
             tab === "founders" ? "sm:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-3"
           }`}
         >
