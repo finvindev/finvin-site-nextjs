@@ -1,4 +1,5 @@
 import ServiceBlock from "../../components/services/ServiceBlock";
+import ServiceAccordion from "../../components/services/ServiceAccordion";
 import OurJourney from "../../components/services/OurJourney";
 
 const PAGE_TITLE = "Services";
@@ -156,6 +157,13 @@ export default function ServicesPage() {
   return (
     <>
       <div className="bg-[#dcefff] pt-32 sm:pt-40">
+        <div className="max-w-[1366px] mx-auto px-6 sm:px-10 pb-14 sm:pb-20">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-[var(--ink)] mb-8 text-center">
+            What We <span className="text-[var(--brand)]">Offer</span>
+          </h2>
+          <ServiceAccordion />
+        </div>
+
         {SERVICES.map((service) => (
           <ServiceBlock key={service.title} {...service} />
         ))}
