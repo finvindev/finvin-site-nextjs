@@ -12,6 +12,7 @@ export default function ServiceBlock({
   imageSide = "right",
   ctaLabel,
   ctaHref,
+  video,
 }) {
   const imageFirst = imageSide === "left";
   const sectionRef = useRef(null);
@@ -103,13 +104,27 @@ export default function ServiceBlock({
             )}
           </div>
 
-          <ImagePlaceholder
-            label={imageLabel}
-            className={`${reveal} sb-reveal-image w-full aspect-[4/3] rounded-2xl ${
-              imageFirst ? "lg:order-1" : "lg:order-2"
-            }`}
-            style={{ transitionDelay: "180ms" }}
-          />
+          {video ? (
+            <video
+              src={video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={`${reveal} sb-reveal-image w-full aspect-[4/3] rounded-2xl object-cover ${
+                imageFirst ? "lg:order-1" : "lg:order-2"
+              }`}
+              style={{ transitionDelay: "180ms" }}
+            />
+          ) : (
+            <ImagePlaceholder
+              label={imageLabel}
+              className={`${reveal} sb-reveal-image w-full aspect-[4/3] rounded-2xl ${
+                imageFirst ? "lg:order-1" : "lg:order-2"
+              }`}
+              style={{ transitionDelay: "180ms" }}
+            />
+          )}
         </div>
       </div>
     </section>
