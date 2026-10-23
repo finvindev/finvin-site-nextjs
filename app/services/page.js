@@ -55,6 +55,7 @@ const SERVICES = [
     title: "Portfolio Sell",
     imageSide: "left",
     imageLabel: "Portfolio sale — distressed asset transactions",
+    video: "/images/services/videos/portfolio-sale.mp4",
     intro:
       "FINVIN provides specialised advisory services to banks, NBFCs and other stakeholders, helping them navigate distressed assets, debt resolution and complex transactions to maximise value and achieve effective outcomes.",
     lists: [
@@ -76,6 +77,7 @@ const SERVICES = [
     title: "Insolvency Professional Entity",
     imageSide: "right",
     imageLabel: "Insolvency Professional Entity — IBC support",
+    video: "/images/services/videos/insolvency.mp4",
     intro:
       "Our company provides comprehensive support to Insolvency Professionals (IPs) acting as Interim Resolution Professionals (IRPs), Resolution Professionals (RPs), or Liquidators. We understand the complexity of managing corporate insolvency and liquidation assignments and offer backend, legal, and field-level assistance to help IPs execute their duties effectively under IBC, 2016.",
     lists: [
@@ -108,6 +110,7 @@ const SERVICES = [
     title: "Estatedeal.in",
     imageSide: "left",
     imageLabel: "Estatedeal.in — bank auction properties",
+    video: "/images/services/videos/estatedeal.mp4",
     intro:
       "Estatedeal.in is a technology platform designed to streamline the sale of non-performing assets. We offer a complete end-to-end solution for banks, managing every aspect of the property sales process.",
     ctaLabel: "Visit Estate Deals",
@@ -131,6 +134,7 @@ const SERVICES = [
     title: "Retail NPA Pool Services",
     imageSide: "right",
     imageLabel: "Retail NPA Pool — loan servicing & recovery",
+    video: "/images/services/videos/retail-npa.mp4",
     intro:
       "We offer comprehensive loan servicing and recovery solutions for Banks, NBFCs, and ARCs, spanning early-stage collections to legal recovery and stressed asset resolution. With a PAN-India operational network and technology-driven processes, we are strengthening the servicing infrastructure for retail lending across underserved markets.",
     lists: [
