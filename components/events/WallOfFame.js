@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-const TOTAL = 21;
+const TOTAL = 16;
 const SLIDES = Array.from({ length: TOTAL }, (_, i) => ({
   src: `/images/events/wall-of-fame/award-${String(i + 1).padStart(2, "0")}.jpeg`,
   alt: `Wall of Fame — recognition moment ${i + 1}`,
