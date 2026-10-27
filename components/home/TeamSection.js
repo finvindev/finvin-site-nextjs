@@ -77,10 +77,12 @@ const LEADERSHIP = [
 ];
 
 function TeamCard({ person }) {
+  const [expanded, setExpanded] = useState(false);
+
   return (
-    <div className="card-lift flex items-stretch gap-5 bg-white border border-[var(--line)] rounded-xl p-5 sm:p-6 min-h-[260px]">
+    <div className="card-lift flex items-start gap-5 bg-white border border-[var(--line)] rounded-xl p-5 sm:p-6 min-h-[260px]">
       {person.photo ? (
-        <div className="relative w-28 sm:w-32 shrink-0 self-stretch overflow-hidden">
+        <div className="relative w-28 sm:w-32 h-[205px] sm:h-[215px] shrink-0 overflow-hidden">
           <Image
             src={person.photo}
             alt={person.name}
@@ -92,7 +94,7 @@ function TeamCard({ person }) {
       ) : (
         <ImagePlaceholder
           label={`Photo — ${person.name}`}
-          className="w-28 sm:w-32 shrink-0 self-stretch"
+          className="w-28 sm:w-32 h-[205px] sm:h-[215px] shrink-0"
         />
       )}
       <div className="flex flex-col gap-2 min-w-0">
@@ -103,9 +105,20 @@ function TeamCard({ person }) {
         {person.credentials && (
           <p className="text-xs font-medium text-[var(--brand-2)]">{person.credentials}</p>
         )}
-        <p className="text-[0.7rem] text-[var(--brand-2)] leading-snug">
+        <p
+          className={`text-[0.7rem] text-[var(--brand-2)] leading-snug ${
+            expanded ? "" : "line-clamp-5 sm:line-clamp-6 lg:line-clamp-none"
+          }`}
+        >
           {person.bio}
         </p>
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          className="lg:hidden self-start text-[0.65rem] font-semibold text-[var(--brand)] -mt-1"
+        >
+          {expanded ? "Read less" : "Read more"}
+        </button>
         <a
           href={person.linkedin || "#"}
           target="_blank"
@@ -190,9 +203,7 @@ export default function TeamSection() {
         </div>
 
         <div
-          className={`grid gap-6 items-start ${
-            tab === "founders" ? "sm:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-3"
-          }`}
+          className="grid gap-6 items-start sm:grid-cols-2 xl:grid-cols-3"
         >
           {people.map((person) => (
             <TeamCard key={person.name} person={person} />
