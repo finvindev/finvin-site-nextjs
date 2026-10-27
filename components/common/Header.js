@@ -33,7 +33,7 @@ export default function Header() {
         </a>
 
         <nav
-          className="hidden md:flex items-center rounded-full border px-3 py-2.5"
+          className="hidden lg:flex items-center rounded-full border px-3 py-2.5"
           style={{ borderColor: "#000" }}
         >
           {NAV_LINKS.map((link) => {
@@ -59,7 +59,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setMenuOpen(true)}
-          className="md:hidden rounded-full border border-[var(--line)] p-2 bg-white"
+          className="lg:hidden rounded-full border border-[var(--line)] p-2 bg-white"
           aria-label="Open menu"
           aria-expanded={menuOpen}
         >
@@ -73,14 +73,14 @@ export default function Header() {
       <div
         onClick={() => setMenuOpen(false)}
         aria-hidden="true"
-        className={`md:hidden fixed inset-0 bg-[var(--navy)]/50 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`lg:hidden fixed inset-0 bg-[var(--navy)]/50 backdrop-blur-sm transition-opacity duration-300 ${
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       />
 
       {/* Slide-in drawer */}
       <div
-        className={`md:hidden fixed top-0 right-0 h-full w-[78%] max-w-[320px] bg-white shadow-2xl transition-transform duration-300 ease-out flex flex-col ${
+        className={`lg:hidden fixed top-0 right-0 h-full w-[78%] max-w-[320px] bg-white shadow-2xl transition-transform duration-300 ease-out flex flex-col ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

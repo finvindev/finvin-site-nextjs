@@ -156,7 +156,7 @@ export default function ServiceAccordion() {
                 style={
                   isActive
                     ? {
-                        top: "calc(100% - 10.5rem)",
+                        top: "calc(100% - clamp(8.5rem, 20vw, 10.5rem))",
                         left: "1.75rem",
                         transform: "translate(0, 0) rotate(0deg)",
                         transformOrigin: "left bottom",
@@ -179,7 +179,7 @@ export default function ServiceAccordion() {
                   isActive ? "opacity-100 delay-200" : "opacity-0 pointer-events-none"
                 }`}
               >
-                <p className="text-sm lg:text-base text-white/85 leading-relaxed">
+                <p className="text-sm lg:text-base text-white/85 leading-relaxed line-clamp-3 lg:line-clamp-none">
                   {panel.tagline}
                 </p>
                 <a

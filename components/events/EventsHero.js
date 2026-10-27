@@ -33,7 +33,7 @@ function EventsHeroDesktop() {
 
     const updateScale = () => {
       const w = window.innerWidth;
-      setScale(w < 1024 ? 0.72 : 1);
+      setScale(w < 1280 ? 0.72 : 1);
     };
 
     let rafId;
@@ -240,10 +240,10 @@ function EventsHeroMobile() {
 export default function EventsHero() {
   return (
     <>
-      <div className="lg:hidden">
+      <div className="xl:hidden">
         <EventsHeroMobile />
       </div>
-      <div className="hidden lg:block">
+      <div className="hidden xl:block">
         <EventsHeroDesktop />
       </div>
     </>
