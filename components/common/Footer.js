@@ -153,7 +153,20 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
-          <p>&copy; 2026 FINVIN. All rights reserved. FINVIN GROUP</p>
+          <div>
+            <p>&copy; 2026 FINVIN. All rights reserved. FINVIN GROUP</p>
+            <p className="mt-1">
+              Website by{" "}
+              <a
+                href="https://labs.picoids.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                Picoids Labs
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-4">
             <a
               href="https://www.instagram.com/_finvin_?obrf=MTQzNXAxczByZjB1ag=="

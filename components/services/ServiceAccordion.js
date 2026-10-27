@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import ImagePlaceholder from "../common/ImagePlaceholder";
 
 const PANELS = [
   {
@@ -10,6 +9,8 @@ const PANELS = [
     tagline:
       "Debt restructuring and resolution strategy for distressed assets, backed by deep IBC and SARFAESI expertise.",
     imageLabel: "Advisory services — stressed asset resolution",
+    image:
+      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=70",
   },
   {
     id: "portfolio-sell",
@@ -17,6 +18,8 @@ const PANELS = [
     tagline:
       "Connecting NPA portfolios with the right ARCs and investors to maximise recovery value.",
     imageLabel: "Portfolio sale — distressed asset transactions",
+    image:
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=70",
   },
   {
     id: "insolvency-professional-entity",
@@ -24,6 +27,8 @@ const PANELS = [
     tagline:
       "IBBI-aligned support for IPs managing end-to-end insolvency and liquidation assignments.",
     imageLabel: "Insolvency Professional Entity — IBC support",
+    image:
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=70",
   },
   {
     id: "estatedeal-in",
@@ -31,6 +36,8 @@ const PANELS = [
     tagline:
       "Our technology platform streamlining the sale of bank-owned and NPA properties.",
     imageLabel: "Estatedeal.in — bank auction properties",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=70",
   },
   {
     id: "retail-npa-pool-services",
@@ -38,6 +45,8 @@ const PANELS = [
     tagline:
       "End-to-end servicing and recovery solutions for retail NPA pools.",
     imageLabel: "Retail NPA Pool — loan servicing & recovery",
+    image:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=70",
   },
 ];
 
@@ -62,7 +71,12 @@ export default function ServiceAccordion() {
                 isActive ? "h-[260px]" : "h-16"
               }`}
             >
-              <ImagePlaceholder label={panel.imageLabel} className="absolute inset-0" />
+              <img
+                src={panel.image}
+                alt={panel.imageLabel}
+                className="absolute inset-0 w-full h-full object-cover"
+                draggable={false}
+              />
               <div
                 className={`absolute inset-0 transition-opacity duration-500 ${
                   isActive
@@ -123,7 +137,12 @@ export default function ServiceAccordion() {
                 isActive ? "flex-[5_1_0%] min-w-[220px] lg:min-w-[280px]" : "flex-[0_0_70px] sm:flex-[0_0_90px] lg:flex-[0_0_110px]"
               }`}
             >
-              <ImagePlaceholder label={panel.imageLabel} className="absolute inset-0" />
+              <img
+                src={panel.image}
+                alt={panel.imageLabel}
+                className="absolute inset-0 w-full h-full object-cover"
+                draggable={false}
+              />
               <div
                 className={`absolute inset-0 transition-opacity duration-500 ${
                   isActive
