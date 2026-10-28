@@ -29,6 +29,7 @@ const SERVICES = [
     title: "Advisory Services",
     imageSide: "right",
     imageLabel: "Advisory services — stressed asset resolution",
+    video: "/images/services/videos/Advisory_services.mp4",
     intro:
       "We work closely with promoters on debt settlement, restructuring and funding solutions, while helping investors identify, evaluate and acquire stressed assets under the IBC and SARFAESI frameworks.",
     lists: [
