@@ -67,7 +67,7 @@ export default function ServiceAccordion() {
               onClick={() => setActiveIndex(isActive ? activeIndex : index)}
               aria-expanded={isActive}
               style={{ animationDelay: `${index * 90}ms` }}
-              className={`animate-accordion-panel relative block w-full text-left rounded-2xl overflow-hidden shadow-[0_12px_30px_rgba(14,26,58,0.15)] transition-[height] duration-500 ease-out ${
+              className={`animate-accordion-panel relative block w-full text-left rounded-2xl overflow-hidden shadow-[0_12px_30px_rgba(14,26,58,0.15)] transition-[height] duration-500 ease-out cursor-pointer ${
                 isActive ? "h-[260px]" : "h-16"
               }`}
             >
@@ -133,7 +133,7 @@ export default function ServiceAccordion() {
               onClick={() => setActiveIndex(index)}
               aria-expanded={isActive}
               style={{ animationDelay: `${index * 90}ms` }}
-              className={`animate-accordion-panel relative shrink-0 h-full text-left rounded-2xl overflow-hidden shadow-[0_12px_30px_rgba(14,26,58,0.15)] transition-[flex-basis,flex-grow] duration-500 ease-out ${
+              className={`animate-accordion-panel relative shrink-0 h-full text-left rounded-2xl overflow-hidden shadow-[0_12px_30px_rgba(14,26,58,0.15)] transition-[flex-basis,flex-grow] duration-500 ease-out cursor-pointer ${
                 isActive ? "flex-[5_1_0%] min-w-[220px] lg:min-w-[280px]" : "flex-[0_0_70px] sm:flex-[0_0_90px] lg:flex-[0_0_110px]"
               }`}
             >
