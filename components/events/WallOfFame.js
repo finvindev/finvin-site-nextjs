@@ -80,7 +80,7 @@ export default function WallOfFame() {
         </h2>
 
         <div
-          className="relative mt-8 h-[260px] sm:h-[340px] px-[110px] sm:px-[180px] overflow-x-clip touch-pan-y"
+          className="relative mt-8 h-[190px] sm:h-[320px] px-6 sm:px-[110px] lg:px-[180px] overflow-x-clip touch-pan-y"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -120,7 +120,7 @@ export default function WallOfFame() {
         </div>
         </div>
 
-        <div className="flex items-center justify-center gap-1.5 mt-8">
+        <div className="flex items-center justify-center gap-1.5 mt-4">
           {SLIDES.map((slide, i) => (
             <button
               key={slide.src}
