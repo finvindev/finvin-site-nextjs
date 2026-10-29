@@ -33,7 +33,7 @@ export default function Hero() {
           distressed asset recovery.
         </p>
 
-        <div className="animate-hero-up [animation-delay:600ms] mt-8 flex flex-wrap items-center gap-4">
+        <div className="animate-hero-up [animation-delay:600ms] mt-8 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4">
           <button
             type="button"
             onClick={openModal}
