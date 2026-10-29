@@ -42,7 +42,7 @@ export default function FYReview() {
 
   return (
     <section ref={sectionRef} className="w-full">
-      <div className="max-w-[1366px] mx-auto px-6 sm:px-10 pt-16 sm:pt-20 pb-20 sm:pb-28 text-center">
+      <div className="max-w-[1366px] mx-auto px-6 sm:px-10 pt-8 sm:pt-10 pb-10 sm:pb-14 text-center">
         <h2 className="font-display font-bold text-3xl sm:text-4xl">
           <span className="text-[var(--ink)]">FY 25-26 in </span>
           <span className="text-[var(--brand)]">Review</span>
@@ -53,7 +53,7 @@ export default function FYReview() {
         </p>
 
         <div
-          className="relative mt-12 max-w-2xl mx-auto aspect-[914/487]"
+          className="relative mt-6 max-w-2xl mx-auto aspect-[914/487] rounded-2xl shadow-[-10px_14px_32px_rgba(14,26,58,0.45)]"
           style={{
             backgroundImage: "url(/images/events/fy-bg-2.webp)",
             backgroundSize: "100% 100%",

@@ -1,7 +1,7 @@
 export default function LifeAtFinvin() {
   return (
     <section id="life-at-finvin" className="w-full bg-[#f8f8f8] scroll-mt-28">
-      <div className="max-w-[1366px] mx-auto px-6 sm:px-10 py-16 sm:py-20">
+      <div className="max-w-[1366px] mx-auto px-6 sm:px-10 py-8 sm:py-10">
         <p className="text-xs font-bold tracking-[0.15em] uppercase text-[var(--brand)] mb-4">
           Life at Finvin
         </p>

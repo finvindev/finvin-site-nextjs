@@ -22,7 +22,7 @@ export default function CTABanner() {
         <button
           type="button"
           onClick={openModal}
-          className="mt-8 inline-block rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--brand-2)] transition-colors"
+          className="mt-8 inline-block rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--brand-2)] transition-colors cursor-pointer"
         >
           Schedule a Consultation
         </button>

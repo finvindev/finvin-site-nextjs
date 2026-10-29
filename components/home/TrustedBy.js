@@ -138,7 +138,7 @@ function LogoMarqueeRow({ logos, direction }) {
 }
 
 export default function TrustedBy() {
-  const [active, setActive] = useState("EstateDeal");
+  const [active, setActive] = useState("Advisory");
   const activeLogos = LOGO_SETS[active];
   const singleRow = activeLogos && SINGLE_ROW_FILTERS.has(active);
   const [row1, row2] = activeLogos && !singleRow ? splitRows(activeLogos) : [[], []];
@@ -160,10 +160,10 @@ export default function TrustedBy() {
               key={filter}
               type="button"
               onClick={() => setActive(filter)}
-              className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors border ${
+              className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-colors border cursor-pointer ${
                 active === filter
                   ? "bg-[var(--navy)] text-white border-[var(--navy)]"
-                  : "text-[var(--muted)] border-[var(--line)] hover:border-[var(--brand)]"
+                  : "text-[var(--muted)] border-[var(--line)] hover:border-[var(--brand)] hover:bg-[var(--brand-soft)]"
               }`}
             >
               {filter}

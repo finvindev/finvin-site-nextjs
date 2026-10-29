@@ -36,7 +36,7 @@ export default function CareerSection() {
 
   return (
     <section id="career" className="w-full bg-[#f8f8f8] scroll-mt-28">
-      <div className="max-w-[700px] mx-auto px-6 sm:px-10 py-16 sm:py-20 text-center">
+      <div className="max-w-[700px] mx-auto px-6 sm:px-10 py-8 sm:py-10 text-center">
         <p className="text-xs font-bold tracking-[0.15em] uppercase text-[var(--brand)] mb-4">
           Career
         </p>

@@ -25,8 +25,8 @@ const HIGHLIGHTS = [
 export default function GoaOffsite() {
   return (
     <section id="conferences" className="w-full bg-[#f8f8f8] scroll-mt-28">
-      <div className="max-w-[1366px] mx-auto px-6 sm:px-10 py-16 sm:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <div className="max-w-[1366px] mx-auto px-6 sm:px-10 py-8 sm:py-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-8">
           <div>
             <p className="flex items-center gap-1.5 text-xs font-bold tracking-[0.15em] uppercase text-[var(--brand)] mb-4">
               <MapPin size={14} strokeWidth={2.4} />
@@ -45,7 +45,7 @@ export default function GoaOffsite() {
             </p>
           </div>
 
-          <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+          <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-[-10px_14px_32px_rgba(14,26,58,0.35)]">
             <Image
               src="/images/events/goa/goa-offsite.jpg"
               alt="Goa offsite — team group photo"
@@ -56,7 +56,7 @@ export default function GoaOffsite() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-4 mb-8">
+        <div className="flex items-center justify-center gap-4 mt-12 mb-8">
           <span className="h-px w-16 sm:w-32 bg-[var(--brand)]" />
           <p className="flex items-center gap-2 text-xs font-bold tracking-[0.15em] uppercase text-[var(--ink)]">
             How We Made It Memorable
@@ -67,7 +67,7 @@ export default function GoaOffsite() {
 
         <div className="grid sm:grid-cols-3 gap-5">
           {HIGHLIGHTS.map((item) => (
-            <div key={item.tag} className="relative aspect-[4/3] rounded-xl overflow-hidden">
+            <div key={item.tag} className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-[-8px_12px_28px_rgba(14,26,58,0.35)]">
               <Image
                 src={item.image}
                 alt={item.alt}

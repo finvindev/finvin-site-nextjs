@@ -68,7 +68,7 @@ const INVESTMENTS = [
 export default function InvestmentsPage() {
   return (
     <div
-      className="pt-32 sm:pt-40"
+      className="pt-28 sm:pt-32"
       style={{
         background:
           "linear-gradient(180deg, #ffffff 0%, #eaf5ff 55%, #dcefff 100%)",

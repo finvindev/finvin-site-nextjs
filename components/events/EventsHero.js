@@ -67,7 +67,7 @@ function EventsHeroDesktop() {
   const s = (px) => px * scale;
 
   return (
-    <section ref={wrapRef} className="relative w-full h-[150vh] bg-[#f8f8f8]">
+    <section ref={wrapRef} className="relative w-full h-[138vh] bg-[#f8f8f8]">
       <div className="sticky top-0 h-screen w-full overflow-visible pt-28 sm:pt-32">
         <div className="max-w-[1366px] mx-auto px-6 sm:px-10 h-full relative">
           {/* Photo stack */}
@@ -103,7 +103,7 @@ function EventsHeroDesktop() {
               return (
                 <div
                   key={photo.src}
-                  className="absolute rounded-2xl overflow-hidden shadow-[0_18px_40px_rgba(14,26,58,0.22)] transition-transform duration-300 ease-out"
+                  className="absolute rounded-2xl overflow-hidden transition-[transform,box-shadow] duration-300 ease-out"
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex((current) => (current === index ? null : current))}
                   style={{
@@ -111,6 +111,9 @@ function EventsHeroDesktop() {
                     height: `${cardHeight}px`,
                     transform: `translateX(${x}px) rotate(${fanRotate}deg) scale(${isHovered ? 1.08 : 1})`,
                     zIndex: isHovered ? 50 : 10 + index,
+                    boxShadow: isHovered
+                      ? "0 24px 50px rgba(14,26,58,0.4)"
+                      : "0 18px 40px rgba(14,26,58,0.22)",
                   }}
                 >
                   <img
@@ -128,7 +131,7 @@ function EventsHeroDesktop() {
           <div
             className="absolute left-0 w-full px-6 sm:px-10 text-center"
             style={{
-              top: "50%",
+              top: "66%",
               opacity: clamp01(1 - phaseB * 1.6),
             }}
           >
@@ -171,7 +174,7 @@ function EventsHeroDesktop() {
 function EventsHeroMobile() {
   return (
     <section className="w-full bg-[#f8f8f8] pt-28 sm:pt-32">
-      <div className="px-6 sm:px-10 pb-14 sm:pb-20 max-w-3xl md:max-w-5xl mx-auto">
+      <div className="px-6 sm:px-10 pb-7 sm:pb-10 max-w-3xl md:max-w-5xl mx-auto">
         <div className="relative h-[190px] sm:h-[260px] md:h-[280px] flex items-center justify-center">
           {PHOTOS.map((photo, index) => (
             <div

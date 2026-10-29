@@ -111,7 +111,7 @@ export default function ServiceBlock({
               loop
               muted
               playsInline
-              className={`${reveal} sb-reveal-image w-full aspect-[4/3] rounded-2xl object-cover ${
+              className={`${reveal} sb-reveal-image w-full aspect-[4/3] rounded-2xl object-cover shadow-[-10px_14px_32px_rgba(14,26,58,0.22)] ${
                 imageFirst ? "lg:order-1" : "lg:order-2"
               }`}
               style={{ transitionDelay: "180ms" }}
@@ -119,7 +119,7 @@ export default function ServiceBlock({
           ) : (
             <ImagePlaceholder
               label={imageLabel}
-              className={`${reveal} sb-reveal-image w-full aspect-[4/3] rounded-2xl ${
+              className={`${reveal} sb-reveal-image w-full aspect-[4/3] rounded-2xl shadow-[-10px_14px_32px_rgba(14,26,58,0.22)] ${
                 imageFirst ? "lg:order-1" : "lg:order-2"
               }`}
               style={{ transitionDelay: "180ms" }}
