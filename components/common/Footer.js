@@ -85,89 +85,80 @@ const BRANCHES = [
 export default function Footer() {
   return (
     <footer className="w-full bg-[var(--navy)] text-white/80">
-      <div className="max-w-[1366px] mx-auto px-6 sm:px-10 pt-16 pb-8">
-        <div className="grid lg:grid-cols-[1fr_2.2fr] gap-12">
+      <div className="max-w-[1366px] mx-auto px-6 sm:px-10 pt-7 pb-4">
+        <div className="grid lg:grid-cols-[1fr_2.2fr] gap-6">
           <div>
             <Image
               src="/images/finvin-logo.png"
               alt="Finvin"
               width={196}
               height={80}
-              className="h-11 w-auto brightness-0 invert mb-5"
+              className="h-24 w-auto brightness-0 invert mb-7"
             />
-            <p className="text-white font-semibold text-sm mb-3">
+            <p className="text-white font-semibold text-xs mb-1.5">
               Finvin Turnaround &amp; Restructuring Pvt. Ltd.
             </p>
-            <p className="text-sm mb-1">+91 86533 53970</p>
-            <a href="mailto:info@finvin.co.in" className="text-sm hover:text-white transition-colors">
+            <p className="text-xs mb-0.5">+91 86533 53970</p>
+            <a href="mailto:info@finvin.co.in" className="text-xs hover:text-white transition-colors">
               info@finvin.co.in
             </a>
-            <p className="mt-4 text-sm text-white/60 leading-relaxed max-w-sm">
+            <p className="mt-5 text-xs text-white/60 leading-snug max-w-[260px] text-justify">
               Finvin is a distressed asset resolution and advisory firm
               helping banks, ARCs and investors navigate NPA recovery,
               insolvency and structured transactions across India.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
-            {COLUMNS.map((col) => (
-              <div key={col.title}>
-                <h3 className="text-white font-semibold text-sm mb-4">{col.title}</h3>
-                <ul className="space-y-3 text-sm">
-                  {col.links.map((link) =>
-                    link.external ? (
-                      <li key={link.label}>
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:text-white transition-colors"
-                        >
-                          {link.label}
-                        </a>
-                      </li>
-                    ) : (
-                      <li key={link.label}>
-                        <Link href={link.href} className="hover:text-white transition-colors">
-                          {link.label}
-                        </Link>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-14 pt-10 border-t border-white/10">
-          <h3 className="text-white font-semibold text-sm mb-6">Our Branches</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-8">
-            {BRANCHES.map((branch) => (
-              <div key={branch.city}>
-                <p className="text-white font-semibold text-sm mb-1.5">{branch.city}</p>
-                <p className="text-xs text-white/60 leading-relaxed">{branch.address}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
           <div>
-            <p>&copy; 2026 FINVIN. All rights reserved. FINVIN GROUP</p>
-            <p className="mt-1">
-              Website by{" "}
-              <a
-                href="https://labs.picoids.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                Picoids Labs
-              </a>
-            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              {COLUMNS.map((col) => (
+                <div key={col.title}>
+                  <h3 className="text-white font-semibold text-xs mb-2">{col.title}</h3>
+                  <ul className="space-y-1.5 text-xs">
+                    {col.links.map((link) =>
+                      link.external ? (
+                        <li key={link.label}>
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-white transition-colors"
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ) : (
+                        <li key={link.label}>
+                          <Link href={link.href} className="hover:text-white transition-colors">
+                            {link.label}
+                          </Link>
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-5 pt-4 border-t border-white/10">
+              <h3 className="text-white font-semibold text-sm mb-2.5">Our Branches</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-3">
+                {BRANCHES.map((branch) => (
+                  <div key={branch.city}>
+                    <p className="text-white font-semibold text-xs mb-0.5">{branch.city}</p>
+                    <p className="text-[11px] text-white/60 leading-snug">{branch.address}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
+        </div>
+
+        <div className="mt-4 pt-3 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 items-center gap-2 text-[11px] text-white/60">
+          <p className="text-center sm:text-left">
+            &copy; 2026 FINVIN. All rights reserved. FINVIN GROUP
+          </p>
+          <div className="flex items-center justify-center gap-4">
             <a
               href="https://www.instagram.com/_finvin_?obrf=MTQzNXAxczByZjB1ag=="
               target="_blank"
@@ -213,6 +204,17 @@ export default function Footer() {
               </svg>
             </a>
           </div>
+          <p className="text-center sm:text-right">
+            Website by{" "}
+            <a
+              href="https://labs.picoids.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Picoids Labs
+            </a>
+          </p>
         </div>
       </div>
     </footer>
