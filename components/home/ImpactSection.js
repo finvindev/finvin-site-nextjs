@@ -66,7 +66,7 @@ export default function ImpactSection() {
             loop
             muted
             playsInline
-            className="w-full aspect-[4/3] rounded-2xl object-cover"
+            className="w-full aspect-[4/3] rounded-2xl object-cover shadow-[-10px_14px_32px_rgba(14,26,58,0.3)]"
           />
         </div>
       </div>

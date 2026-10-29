@@ -25,8 +25,8 @@ export default function Header() {
           <Image
             src="/images/finvin-logo.png"
             alt="Finvin"
-            width={170}
-            height={46}
+            width={196}
+            height={80}
             priority
             className="h-14 w-auto"
           />
@@ -45,7 +45,8 @@ export default function Header() {
                 {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="relative px-6 py-2 text-sm font-semibold tracking-[0.06em] text-[var(--ink)] uppercase group"
               >
-                {link.label}
+                <span className="absolute inset-0 rounded-full bg-[var(--brand-soft)] opacity-0 transition-opacity duration-200 ease-out group-hover:opacity-100" />
+                <span className="relative">{link.label}</span>
                 <span
                   className={`absolute left-6 right-6 -bottom-0.5 h-[2px] bg-[var(--brand)] origin-center transition-transform duration-200 ease-out ${
                     isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
@@ -85,7 +86,7 @@ export default function Header() {
         }`}
       >
         <div className="flex items-center justify-between px-6 py-5 border-b" style={{ borderColor: "var(--line)" }}>
-          <Image src="/images/finvin-logo.png" alt="Finvin" width={130} height={36} className="h-10 w-auto" />
+          <Image src="/images/finvin-logo.png" alt="Finvin" width={196} height={80} className="h-10 w-auto" />
           <button
             type="button"
             onClick={() => setMenuOpen(false)}
@@ -127,7 +128,7 @@ export default function Header() {
               setMenuOpen(false);
               openModal();
             }}
-            className="block w-full text-center rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--brand-2)] transition-colors"
+            className="block w-full text-center rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--brand-2)] transition-colors cursor-pointer"
           >
             Schedule a Consultation
           </button>

@@ -11,6 +11,8 @@ export default function ConsultationModal() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const MESSAGE_LIMIT = 100;
 
   useEffect(() => {
     if (!isOpen) return;
@@ -25,6 +27,7 @@ export default function ConsultationModal() {
       setSubmitted(false);
       setSubmitting(false);
       setError("");
+      setMessage("");
     }
   }, [isOpen]);
 
@@ -37,6 +40,7 @@ export default function ConsultationModal() {
 
     try {
       const formData = new FormData(e.target);
+      formData.set("phone", `+91 ${formData.get("phone")}`.trim());
       const res = await fetch("/api/consultation", {
         method: "POST",
         body: formData,
@@ -60,19 +64,25 @@ export default function ConsultationModal() {
       <div
         onClick={closeModal}
         aria-hidden="true"
-        className="absolute inset-0 bg-[var(--navy)]/60 backdrop-blur-sm"
+        className="absolute inset-0 bg-[var(--navy)]/40 backdrop-blur-sm"
       />
 
-      <div className="relative w-full max-w-md rounded-2xl bg-white shadow-2xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-md rounded-2xl bg-white shadow-2xl p-6 sm:p-8 max-h-[90vh] overflow-hidden">
         <button
           type="button"
           onClick={closeModal}
           aria-label="Close"
-          className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full border"
+          className="group absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full border cursor-pointer transition-colors hover:bg-red-500 hover:border-red-500"
           style={{ borderColor: "var(--line)" }}
         >
           <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-            <path d="M5 5l10 10M15 5L5 15" stroke="#141b2e" strokeWidth="1.6" strokeLinecap="round" />
+            <path
+              d="M5 5l10 10M15 5L5 15"
+              stroke="#141b2e"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              className="transition-colors group-hover:stroke-white"
+            />
           </svg>
         </button>
 
@@ -103,13 +113,14 @@ export default function ConsultationModal() {
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
               <div>
-                <label className="block text-xs font-semibold text-[var(--ink)] mb-1.5">
+                <label className="block text-[14px] font-semibold text-[var(--ink)] mb-1.5">
                   Full Name
                 </label>
                 <input
                   type="text"
                   name="fullName"
                   required
+                  maxLength={50}
                   placeholder="Your full name"
                   className={FIELD_CLASS}
                   style={{ borderColor: "var(--line)" }}
@@ -117,21 +128,38 @@ export default function ConsultationModal() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[var(--ink)] mb-1.5">
+                <label className="block text-[14px] font-semibold text-[var(--ink)] mb-1.5">
                   Mobile Number
                 </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  required
-                  placeholder="+91 00000 00000"
-                  className={FIELD_CLASS}
+                <div
+                  className="flex items-stretch rounded-xl bg-white border overflow-hidden focus-within:border-[var(--brand)] transition-colors"
                   style={{ borderColor: "var(--line)" }}
-                />
+                >
+                  <span
+                    className="flex items-center px-4 text-sm text-[var(--ink)] border-r bg-[var(--paper-2)]"
+                    style={{ borderColor: "var(--line)" }}
+                  >
+                    +91
+                  </span>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    inputMode="numeric"
+                    maxLength={10}
+                    pattern="[0-9]{10}"
+                    title="Enter a 10-digit mobile number"
+                    placeholder="00000 00000"
+                    onInput={(e) => {
+                      e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10);
+                    }}
+                    className="w-full px-4 py-3 text-sm text-[var(--ink)] outline-none placeholder:text-[var(--muted)]"
+                  />
+                </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[var(--ink)] mb-1.5">
+                <label className="block text-[14px] font-semibold text-[var(--ink)] mb-1.5">
                   Email
                 </label>
                 <input
@@ -145,13 +173,21 @@ export default function ConsultationModal() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[var(--ink)] mb-1.5">
-                  What help do you need?
-                </label>
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="block text-[14px] font-semibold text-[var(--ink)]">
+                    What help do you need?
+                  </label>
+                  <span className="text-xs text-[var(--muted)]">
+                    {message.length}/{MESSAGE_LIMIT}
+                  </span>
+                </div>
                 <textarea
                   name="message"
                   required
                   rows={4}
+                  maxLength={MESSAGE_LIMIT}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value.slice(0, MESSAGE_LIMIT))}
                   placeholder="Briefly describe the purpose of your consultation"
                   className={`${FIELD_CLASS} resize-none`}
                   style={{ borderColor: "var(--line)" }}
@@ -163,7 +199,7 @@ export default function ConsultationModal() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="mt-2 rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-8 py-3 hover:bg-[var(--brand-2)] transition-colors self-center disabled:opacity-60 disabled:cursor-not-allowed"
+                className="mt-2 rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-8 py-3 hover:bg-[var(--brand-2)] transition-colors self-center cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {submitting ? "Submitting..." : "Submit Request"}
               </button>

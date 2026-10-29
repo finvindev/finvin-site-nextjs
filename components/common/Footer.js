@@ -6,8 +6,8 @@ const COLUMNS = [
     title: "Overview",
     links: [
       { label: "Our Impact", href: "/#our-impact" },
-      { label: "Leadership Team", href: "/?team=leadership#leadership-team" },
       { label: "Founders", href: "/?team=founders#leadership-team" },
+      { label: "Leadership Team", href: "/?team=leadership#leadership-team" },
     ],
   },
   {
@@ -91,8 +91,8 @@ export default function Footer() {
             <Image
               src="/images/finvin-logo.png"
               alt="Finvin"
-              width={170}
-              height={46}
+              width={196}
+              height={80}
               className="h-11 w-auto brightness-0 invert mb-5"
             />
             <p className="text-white font-semibold text-sm mb-3">

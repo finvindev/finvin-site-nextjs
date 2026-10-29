@@ -15,7 +15,9 @@ export default function InvestmentBlock({
   statCaption,
   image,
   imageAlt,
+  imageSide = "right",
 }) {
+  const imageFirst = imageSide === "left";
   const sectionRef = useRef(null);
   const [inView, setInView] = useState(false);
 
@@ -42,10 +44,14 @@ export default function InvestmentBlock({
   const reveal = inView ? "sb-reveal is-visible" : "sb-reveal";
 
   return (
-    <section id={id} ref={sectionRef} className="w-full scroll-mt-28">
-      <div className="max-w-[1366px] mx-auto px-6 sm:px-10 py-14 sm:py-20">
+    <section
+      id={id}
+      ref={sectionRef}
+      className="w-full scroll-mt-28 shadow-[0_-10px_16px_-10px_rgba(14,26,58,0.05)] first:shadow-none"
+    >
+      <div className="max-w-[1366px] mx-auto px-6 sm:px-10 pt-[100px] pb-9 sm:pb-14">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-          <div className="lg:order-1">
+          <div className={imageFirst ? "lg:order-2" : "lg:order-1"}>
             <h2
               className={`${reveal} font-display font-bold text-3xl sm:text-4xl text-[var(--brand)] mb-4 leading-tight`}
               style={{ transitionDelay: "0ms" }}
@@ -84,9 +90,9 @@ export default function InvestmentBlock({
             </div>
           </div>
 
-          <div className="lg:order-2">
+          <div className={imageFirst ? "lg:order-1" : "lg:order-2"}>
             <div
-              className={`${reveal} sb-reveal-image relative w-full aspect-[2/1] rounded-[28px] overflow-hidden shadow-[0_20px_50px_rgba(14,26,58,0.12)]`}
+              className={`${reveal} sb-reveal-image relative w-full aspect-[2/1] rounded-[28px] overflow-hidden shadow-[-10px_14px_32px_rgba(14,26,58,0.22)]`}
               style={{ transitionDelay: "180ms" }}
             >
               <Image

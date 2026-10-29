@@ -37,13 +37,13 @@ export default function Hero() {
           <button
             type="button"
             onClick={openModal}
-            className="rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--brand-2)] transition-colors"
+            className="rounded-full bg-[var(--brand)] text-white text-sm font-semibold px-6 py-3 hover:bg-[var(--brand-2)] transition-colors cursor-pointer"
           >
             Schedule a Consultation
           </button>
           <Link
             href="/events#career"
-            className="rounded-full bg-[var(--paper-2)] text-[var(--ink)] text-sm font-semibold px-6 py-3 hover:bg-[var(--line)] transition-colors"
+            className="rounded-full bg-[#a6abb3] text-black text-sm font-semibold px-6 py-3 hover:bg-[#8a8f99] transition-colors"
           >
             Explore Opportunity
           </Link>
