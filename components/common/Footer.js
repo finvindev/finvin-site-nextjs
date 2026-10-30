@@ -96,7 +96,7 @@ export default function Footer() {
               className="h-16 w-auto mb-7"
             />
             <p className="text-white font-semibold text-[10px] mb-1.5">
-              Finvin Turnaround &amp; Restructuring Pvt. Ltd.
+              Finvin Group
             </p>
             <p className="text-[10px] mb-0.5">+91 86533 53970</p>
             <a href="mailto:info@finvin.co.in" className="text-[10px] hover:text-white transition-colors">
