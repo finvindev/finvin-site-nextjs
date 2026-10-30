@@ -80,7 +80,7 @@ const BIO_PREVIEW_LIMIT = 250;
 
 function TeamCard({ person }) {
   const [expanded, setExpanded] = useState(false);
-  const isLongBio = person.bio.length > BIO_PREVIEW_LIMIT;
+  const isLongBio = person.bio.length >= BIO_PREVIEW_LIMIT;
 
   return (
     <div className="card-lift flex items-stretch gap-5 bg-white border border-[var(--line)] rounded-xl p-5 sm:p-6 min-h-[310px] h-full">
