@@ -89,11 +89,11 @@ export default function Footer() {
         <div className="grid lg:grid-cols-[1fr_2.2fr] gap-6">
           <div>
             <Image
-              src="/images/finvin-logo.png"
+              src="/images/finvin-logo.jpg"
               alt="Finvin"
               width={196}
               height={80}
-              className="h-16 w-auto brightness-0 invert mb-7"
+              className="h-16 w-auto mb-7"
             />
             <p className="text-white font-semibold text-[10px] mb-1.5">
               Finvin Turnaround &amp; Restructuring Pvt. Ltd.

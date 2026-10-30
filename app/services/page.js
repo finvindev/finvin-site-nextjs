@@ -169,8 +169,8 @@ export default function ServicesPage() {
           <ServiceAccordion />
         </div>
 
-        {SERVICES.map((service) => (
-          <ServiceBlock key={service.title} {...service} />
+        {SERVICES.map((service, index) => (
+          <ServiceBlock key={service.title} {...service} noTopSeparator={index === 0} />
         ))}
       </div>
       <OurJourney backgroundImage="/images/services/our-journey-hero.webp" />

@@ -13,6 +13,7 @@ export default function ServiceBlock({
   ctaLabel,
   ctaHref,
   video,
+  noTopSeparator = false,
 }) {
   const imageFirst = imageSide === "left";
   const sectionRef = useRef(null);
@@ -41,7 +42,13 @@ export default function ServiceBlock({
   const reveal = inView ? "sb-reveal is-visible" : "sb-reveal";
 
   return (
-    <section id={id} ref={sectionRef} className="w-full scroll-mt-28">
+    <section
+      id={id}
+      ref={sectionRef}
+      className={`w-full scroll-mt-28 ${
+        noTopSeparator ? "" : "shadow-[0_-10px_16px_-10px_rgba(14,26,58,0.05)]"
+      }`}
+    >
       <div className="max-w-[1366px] mx-auto px-6 sm:px-10 py-14 sm:py-20">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div className={imageFirst ? "lg:order-2" : "lg:order-1"}>
