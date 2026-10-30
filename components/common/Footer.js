@@ -93,16 +93,16 @@ export default function Footer() {
               alt="Finvin"
               width={196}
               height={80}
-              className="h-24 w-auto brightness-0 invert mb-7"
+              className="h-16 w-auto brightness-0 invert mb-7"
             />
-            <p className="text-white font-semibold text-xs mb-1.5">
+            <p className="text-white font-semibold text-[10px] mb-1.5">
               Finvin Turnaround &amp; Restructuring Pvt. Ltd.
             </p>
-            <p className="text-xs mb-0.5">+91 86533 53970</p>
-            <a href="mailto:info@finvin.co.in" className="text-xs hover:text-white transition-colors">
+            <p className="text-[10px] mb-0.5">+91 86533 53970</p>
+            <a href="mailto:info@finvin.co.in" className="text-[10px] hover:text-white transition-colors">
               info@finvin.co.in
             </a>
-            <p className="mt-5 text-xs text-white/60 leading-snug max-w-[260px] text-justify">
+            <p className="mt-5 text-[10px] text-white/60 leading-snug max-w-[260px] text-justify">
               Finvin is a distressed asset resolution and advisory firm
               helping banks, ARCs and investors navigate NPA recovery,
               insolvency and structured transactions across India.
@@ -110,11 +110,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-4 sm:gap-y-6">
               {COLUMNS.map((col) => (
                 <div key={col.title}>
-                  <h3 className="text-white font-semibold text-xs mb-2">{col.title}</h3>
-                  <ul className="space-y-1.5 text-xs">
+                  <h3 className="text-white font-semibold text-[10px] mb-2">{col.title}</h3>
+                  <ul className="space-y-1.5 text-[10px]">
                     {col.links.map((link) =>
                       link.external ? (
                         <li key={link.label}>
@@ -141,12 +141,12 @@ export default function Footer() {
             </div>
 
             <div className="mt-5 pt-4 border-t border-white/10">
-              <h3 className="text-white font-semibold text-sm mb-2.5">Our Branches</h3>
+              <h3 className="text-white font-semibold text-[11px] mb-2.5">Our Branches</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-3">
                 {BRANCHES.map((branch) => (
                   <div key={branch.city}>
-                    <p className="text-white font-semibold text-xs mb-0.5">{branch.city}</p>
-                    <p className="text-[11px] text-white/60 leading-snug">{branch.address}</p>
+                    <p className="text-white font-semibold text-[10px] mb-0.5">{branch.city}</p>
+                    <p className="text-[9px] text-white/60 leading-snug">{branch.address}</p>
                   </div>
                 ))}
               </div>
@@ -154,7 +154,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-4 pt-3 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 items-center gap-2 text-[11px] text-white/60">
+        <div className="mt-4 pt-3 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 items-center gap-2 text-[9px] text-white/60">
           <p className="text-center sm:text-left">
             &copy; 2026 FINVIN. All rights reserved. FINVIN GROUP
           </p>
