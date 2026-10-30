@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: "Investments", href: "/investments" },
   { label: "Events", href: "/events" },
   { label: "Deals", href: "#" },
-  { label: "Estate Deals", href: "https://estatedeal.in", external: true },
+  { label: "Estate Deal", href: "https://estatedeal.in", external: true },
 ];
 
 export default function Header() {

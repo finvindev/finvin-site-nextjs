@@ -19,7 +19,7 @@ const COLUMNS = [
         label: "Insolvency Professional Entity",
         href: "/services#insolvency-professional-entity",
       },
-      { label: "Estate Deals", href: "https://estatedeal.in", external: true },
+      { label: "Estate Deal", href: "https://estatedeal.in", external: true },
       {
         label: "Retail NPA Pool Servicing",
         href: "/services#retail-npa-pool-services",
